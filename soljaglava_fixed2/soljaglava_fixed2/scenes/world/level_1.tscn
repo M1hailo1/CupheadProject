@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dngtjh1mii0f3"]
 
 [ext_resource type="PackedScene" uid="uid://bfnuy8p62it8t" path="res://scenes/player/player.tscn" id="1_pq706"]
+[ext_resource type="PackedScene" uid="uid://d00lmae2onh6e" path="res://scenes/enemies/basic_enemy.tscn" id="2_5ebu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq706"]
 size = Vector2(1000, 20)
@@ -31,3 +32,5 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 60.0
 offset_bottom = 43.0
+
+[node name="Enemy" parent="." unique_id=1412421172 instance=ExtResource("2_5ebu0")]

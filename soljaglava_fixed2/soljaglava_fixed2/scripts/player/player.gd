@@ -61,7 +61,7 @@ func take_damage():
 func die():
 	print("YOU DIED")
 	GameManager.lose_life()
-	get_tree().reload_current_scene()
+	get_tree().reload_current_scene.call_deferred()
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:

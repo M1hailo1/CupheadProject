@@ -7,8 +7,8 @@ radius = 20.0
 height = 60.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
-radius = 8.0
-height = 26.0
+radius = 15.0
+height = 50.0
 
 [node name="Player" type="CharacterBody2D" unique_id=610599533]
 script = ExtResource("1_8afob")
