@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dtlv4bmuw50un"]
+
+[ext_resource type="Script" uid="uid://n6p117mqb55a" path="res://scripts/projectiles/player_bullet.gd" id="1_u67i2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57fuv"]
+
+[node name="Bullet" type="Area2D" unique_id=1801235828]
+script = ExtResource("1_u67i2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=796767411]
+shape = SubResource("CircleShape2D_57fuv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1970846868]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 1, 0, 1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=21306949]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

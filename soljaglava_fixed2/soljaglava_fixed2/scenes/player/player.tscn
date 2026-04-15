@@ -11,7 +11,6 @@ radius = 8.0
 height = 26.0
 
 [node name="Player" type="CharacterBody2D" unique_id=610599533]
-position = Vector2(0, -200)
 script = ExtResource("1_8afob")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1796792439]
@@ -27,7 +26,8 @@ shape = SubResource("CapsuleShape2D_x7p2l")
 shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1295579161]
-offset_left = -25.0
-offset_top = -65.0
-offset_right = 16.0
-offset_bottom = -31.0
+offset_left = -20.0
+offset_top = -70.0
+offset_right = 20.0
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
