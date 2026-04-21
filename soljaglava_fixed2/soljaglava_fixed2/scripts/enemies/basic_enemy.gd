@@ -19,6 +19,9 @@ func _physics_process(delta: float) -> void:
 		direction = -1
 	if position.x <100:
 		direction = 1
+		
+	$AnimatedSprite2D.play("run")
+	$AnimatedSprite2D.flip_h = direction > 0
 	
 func take_damage():
 	hp-=1

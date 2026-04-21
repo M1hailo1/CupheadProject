@@ -4,6 +4,9 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 980.0
 
+var shoot_timer = 0.0
+const SHOOT_COOLDOWN = 0.25
+
 const MAX_HP = 3
 var hp = 3
 var invincible = false
@@ -35,16 +38,24 @@ func _physics_process(delta: float) -> void:
 		if invincible_timer<=0:
 			invincible=false
 	
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+	if Input.is_action_pressed("shoot"):
+		shoot_timer -= delta
+		if shoot_timer <= 0:
+			shoot()
+			shoot_timer = SHOOT_COOLDOWN
+	else:
+		shoot_timer = SHOOT_COOLDOWN
 		
 
 	move_and_slide()
+	update_animation()
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.direction = 1 if facing > 0 else -1
-	bullet.position = global_position
+	var spawn_offset = $BulletSpawnPoint.position
+	spawn_offset.x = abs(spawn_offset.x) * facing  # flips X based on direction
+	bullet.position = global_position + spawn_offset
 	get_parent().add_child(bullet)
 	
 func take_damage():
@@ -66,3 +77,19 @@ func die():
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	take_damage()
+	
+func update_animation() -> void:
+	if not is_on_floor():
+		$AnimatedSprite2D.play("jump")
+	elif Input.is_action_pressed("shoot"):
+		if $AnimatedSprite2D.animation != "run_shoot":
+			$AnimatedSprite2D.play("run_shoot")
+	elif abs(velocity.x) > 0:
+		$AnimatedSprite2D.play("run")
+	else:
+		$AnimatedSprite2D.play("idle")
+	
+	if facing == 1:
+		$AnimatedSprite2D.flip_h = false
+	else:
+		$AnimatedSprite2D.flip_h = true

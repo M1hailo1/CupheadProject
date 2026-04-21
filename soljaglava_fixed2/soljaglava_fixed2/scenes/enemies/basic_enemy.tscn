@@ -1,6 +1,67 @@
 [gd_scene format=3 uid="uid://d00lmae2onh6e"]
 
 [ext_resource type="Script" uid="uid://b4y7amfsb8ffq" path="res://scripts/enemies/basic_enemy.gd" id="1_7jpia"]
+[ext_resource type="Texture2D" uid="uid://c6brkhcuq4jmj" path="res://assets/sprites/enemies/blueberry/blob_run_0001.png" id="2_h8g6m"]
+[ext_resource type="Texture2D" uid="uid://bbqyk00yyvg5i" path="res://assets/sprites/enemies/blueberry/blob_run_0002.png" id="3_ojalv"]
+[ext_resource type="Texture2D" uid="uid://uapmdp1256ou" path="res://assets/sprites/enemies/blueberry/blob_run_0003.png" id="4_qh2ad"]
+[ext_resource type="Texture2D" uid="uid://cedrf7ec4y78l" path="res://assets/sprites/enemies/blueberry/blob_run_0004.png" id="5_n4dni"]
+[ext_resource type="Texture2D" uid="uid://b0p1nkdw7ogar" path="res://assets/sprites/enemies/blueberry/blob_run_0005.png" id="6_xaycq"]
+[ext_resource type="Texture2D" uid="uid://dxa5prh0bm11r" path="res://assets/sprites/enemies/blueberry/blob_run_0006.png" id="7_0hljc"]
+[ext_resource type="Texture2D" uid="uid://ct0fxa2ey1gdl" path="res://assets/sprites/enemies/blueberry/blob_run_0007.png" id="8_wod4a"]
+[ext_resource type="Texture2D" uid="uid://de1yaodsjftod" path="res://assets/sprites/enemies/blueberry/blob_run_0008.png" id="9_25nkx"]
+[ext_resource type="Texture2D" uid="uid://dw6mx3j31q5we" path="res://assets/sprites/enemies/blueberry/blob_run_0009.png" id="10_dgx5x"]
+[ext_resource type="Texture2D" uid="uid://shcct1v4je23" path="res://assets/sprites/enemies/blueberry/blob_run_0010.png" id="11_dl1gn"]
+[ext_resource type="Texture2D" uid="uid://b6d2c4a3rm3mm" path="res://assets/sprites/enemies/blueberry/blob_run_0011.png" id="12_kety8"]
+[ext_resource type="Texture2D" uid="uid://by5k2veegyifg" path="res://assets/sprites/enemies/blueberry/blob_run_0012.png" id="13_ijv7h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgmo3"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h8g6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ojalv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qh2ad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n4dni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xaycq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0hljc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wod4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_25nkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dgx5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dl1gn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kety8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ijv7h")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgb66"]
 size = Vector2(30, 35)
@@ -9,16 +70,16 @@ size = Vector2(30, 35)
 size = Vector2(36, 40)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1412421172]
+z_index = 2
+scale = Vector2(0.65, 0.65)
 script = ExtResource("1_7jpia")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=919781426]
+sprite_frames = SubResource("SpriteFrames_jgmo3")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=50098233]
 shape = SubResource("RectangleShape2D_tgb66")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1474633342]
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-color = Color(1, 0, 0, 1)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1231914220]
 
