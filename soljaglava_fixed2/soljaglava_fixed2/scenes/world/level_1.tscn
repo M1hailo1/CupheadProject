@@ -21,10 +21,6 @@ shape = SubResource("RectangleShape2D_pq706")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=357570861]
 zoom = Vector2(2, 2)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2013080131]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1921890005]
 
 [node name="HPLabel" type="Label" parent="CanvasLayer" unique_id=1164657839]
@@ -34,3 +30,7 @@ offset_right = 60.0
 offset_bottom = 43.0
 
 [node name="Enemy" parent="." unique_id=1412421172 instance=ExtResource("2_5ebu0")]
+position = Vector2(-129, 0)
+
+[node name="Enemy2" parent="." unique_id=644932758 instance=ExtResource("2_5ebu0")]
+position = Vector2(131, 0)

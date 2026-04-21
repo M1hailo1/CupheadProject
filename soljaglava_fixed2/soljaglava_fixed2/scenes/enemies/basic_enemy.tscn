@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://b4y7amfsb8ffq" path="res://scripts/enemies/basic_enemy.gd" id="1_7jpia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgb66"]
-size = Vector2(40, 40)
+size = Vector2(30, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jpia"]
-size = Vector2(40, 40)
+size = Vector2(36, 40)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1412421172]
 script = ExtResource("1_7jpia")
@@ -21,7 +21,6 @@ offset_right = 20.0
 color = Color(1, 0, 0, 1)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1231914220]
-position = Vector2(40, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=157402830]
 shape = SubResource("RectangleShape2D_7jpia")
