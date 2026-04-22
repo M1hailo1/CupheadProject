@@ -101,13 +101,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrwcb"]
-size = Vector2(40, 50)
+size = Vector2(90, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cj6u1"]
-size = Vector2(45, 55)
+size = Vector2(96, 93.5)
 
 [node name="MushroomEnemy" type="CharacterBody2D" unique_id=1624352712]
-scale = Vector2(0.5, 0.5)
+z_index = 1
+collision_layer = 2
 script = ExtResource("1_phv4c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1452656189]
@@ -115,9 +116,14 @@ sprite_frames = SubResource("SpriteFrames_1dv8k")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=448126232]
+position = Vector2(39, 18.5)
 shape = SubResource("RectangleShape2D_xrwcb")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=715320844]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1073826195]
+position = Vector2(40, 19.25)
 shape = SubResource("RectangleShape2D_cj6u1")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=1186510196]
+position = Vector2(-60, 0)

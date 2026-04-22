@@ -21,10 +21,10 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
-
+	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * SPEED
 	
@@ -32,11 +32,18 @@ func _physics_process(delta: float) -> void:
 		facing = 1
 	elif direction < 0:
 		facing = -1
-
+	
 	if invincible:
-		invincible_timer-=delta
-		if invincible_timer<=0:
-			invincible=false
+		invincible_timer -= delta
+		if invincible_timer <= 0:
+			invincible = false
+		$AnimatedSprite2D.modulate.a = 0.0 if fmod(invincible_timer, 0.2) < 0.1 else 1.0
+	else:
+		$AnimatedSprite2D.modulate.a = 1.0
+	
+	for area in $Hurtbox.get_overlapping_areas():
+		take_damage()
+		break
 	
 	if Input.is_action_pressed("shoot"):
 		shoot_timer -= delta
@@ -45,8 +52,7 @@ func _physics_process(delta: float) -> void:
 			shoot_timer = SHOOT_COOLDOWN
 	else:
 		shoot_timer = SHOOT_COOLDOWN
-		
-
+	
 	move_and_slide()
 	update_animation()
 

@@ -5,7 +5,7 @@ var hp = 3
 var shoot_timer = 3.0
 const SHOOT_COOLDOWN = 3.0
 var player = null
-var bullet_scene = preload("res://scenes/projectiles/player_bullet.tscn")
+var bullet_scene = preload("res://scenes/projectiles/enemy_bullet.tscn")
 
 func _ready():
 	player = get_tree().get_root().find_child("Player", true, false)
@@ -17,7 +17,8 @@ func _physics_process(delta: float) -> void:
 	
 	shoot_timer -= delta
 	if shoot_timer <= 0:
-		attack()
+		if player and abs(player.global_position.x - global_position.x) < 400:
+			attack()
 		shoot_timer = SHOOT_COOLDOWN
 		
 	if player:
@@ -29,8 +30,12 @@ func attack():
 		var dir = sign(player.global_position.x - global_position.x)
 		var bullet = bullet_scene.instantiate()
 		bullet.direction = dir
-		bullet.position = global_position
-		get_parent().add_child(bullet)
+		print("Spawn position: ", $BulletSpawnPoint.global_position)
+		print("Mushroom position: ", global_position)
+		var spawn = $BulletSpawnPoint.position
+		spawn.x = abs(spawn.x) * dir
+		bullet.position = global_position + spawn
+		get_tree().get_root().get_child(0).add_child(bullet)
 		await get_tree().create_timer(1.0).timeout
 		$AnimatedSprite2D.play("idle")
 

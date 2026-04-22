@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dngtjh1mii0f3"]
 
+[ext_resource type="Texture2D" uid="uid://c85oaedfdx6kj" path="res://assets/sprites/lv1-1_mg_ground_0002.png" id="1_8q1ex"]
 [ext_resource type="PackedScene" uid="uid://bfnuy8p62it8t" path="res://scenes/player/player.tscn" id="1_pq706"]
 [ext_resource type="PackedScene" uid="uid://d00lmae2onh6e" path="res://scenes/enemies/basic_enemy.tscn" id="2_5ebu0"]
 [ext_resource type="Texture2D" uid="uid://bwqogk7qd5h3g" path="res://assets/sprites/lv1-1_bg_sky.png" id="3_ur07v"]
@@ -10,17 +11,32 @@
 [ext_resource type="PackedScene" uid="uid://foeo3usbosbu" path="res://scenes/enemies/mushroom_enemy.tscn" id="8_28edb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq706"]
-size = Vector2(5000, 20)
+size = Vector2(7000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28edb"]
+size = Vector2(20, 2000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0ve4"]
 size = Vector2(162.49994, 75.00002)
 
 [node name="Level1" type="Node2D" unique_id=1475615041]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1879235709]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1879235709]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1125874885]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1125874885]
 shape = SubResource("RectangleShape2D_pq706")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=506675894]
+position = Vector2(-294, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1238512001]
+shape = SubResource("RectangleShape2D_28edb")
+
+[node name="left wall texture" type="Sprite2D" parent="LeftWall" unique_id=2064069938]
+position = Vector2(-274.78046, -210.55554)
+rotation = 1.470636
+scale = Vector2(1, 0.87467945)
+texture = ExtResource("1_8q1ex")
 
 [node name="Player" parent="." unique_id=610599533 instance=ExtResource("1_pq706")]
 position = Vector2(0, -40)
@@ -28,129 +44,307 @@ position = Vector2(0, -40)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=357570861]
 offset = Vector2(0, -50)
 zoom = Vector2(2, 2)
+limit_top = -250
+limit_bottom = 100
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1921890005]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1921890005]
 
-[node name="HPLabel" type="Label" parent="CanvasLayer" unique_id=1164657839]
+[node name="HPLabel" type="Label" parent="UI" unique_id=1164657839]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 60.0
 offset_bottom = 43.0
 
-[node name="Enemy" parent="." unique_id=1412421172 instance=ExtResource("2_5ebu0")]
+[node name="Enemies" type="Node2D" parent="." unique_id=1408686590]
 position = Vector2(-130, -33)
+scale = Vector2(0.65, 0.65)
 
-[node name="Enemy2" parent="." unique_id=644932758 instance=ExtResource("2_5ebu0")]
-position = Vector2(131, -33)
+[node name="Enemy" parent="Enemies" unique_id=1412421172 instance=ExtResource("2_5ebu0")]
+position = Vector2(1149.2308, 0)
+scale = Vector2(1, 1)
 
-[node name="Platform1" type="Sprite2D" parent="." unique_id=815744026]
-z_index = -1
-position = Vector2(183, -73)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_b0ve4")
+[node name="Enemy2" parent="Enemies" unique_id=644932758 instance=ExtResource("2_5ebu0")]
+position = Vector2(1550.7693, 0)
+scale = Vector2(1, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform1" unique_id=1618679398]
+[node name="Enemy3" parent="Enemies" unique_id=378469509 instance=ExtResource("2_5ebu0")]
+position = Vector2(1189.2308, -226.15387)
+scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/StaticBody2D" unique_id=646107718]
-position = Vector2(0, -17.5)
-scale = Vector2(0.9999994, 0.9999994)
-shape = SubResource("RectangleShape2D_b0ve4")
-one_way_collision = true
+[node name="MushroomEnemy" parent="Enemies" unique_id=1484630187 instance=ExtResource("8_28edb")]
+position = Vector2(940.00006, -10.769234)
+scale = Vector2(0.76923084, 0.76923084)
 
-[node name="Platform2" type="Sprite2D" parent="." unique_id=838361379]
-z_index = -1
-position = Vector2(324, -130)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_b0ve4")
+[node name="MushroomEnemy2" parent="Enemies" unique_id=1624352712 instance=ExtResource("8_28edb")]
+position = Vector2(672.30774, -230.76926)
+scale = Vector2(0.76923084, 0.76923084)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Platform2" unique_id=1101916316]
+[node name="MushroomEnemy3" parent="Enemies" unique_id=131198919 instance=ExtResource("8_28edb")]
+position = Vector2(1338.4615, -10.769228)
+scale = Vector2(0.76923084, 0.76923084)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/StaticBody2D" unique_id=1881330883]
-position = Vector2(0, -17.5)
-scale = Vector2(0.9999994, 0.9999994)
-shape = SubResource("RectangleShape2D_b0ve4")
-one_way_collision = true
-
-[node name="Background1" type="CanvasGroup" parent="." unique_id=864049183]
-position = Vector2(61.999992, -131.00002)
-scale = Vector2(0.29999995, 0.29999995)
-
-[node name="Tree" type="Sprite2D" parent="Background1" unique_id=1736307199]
-z_index = -2
-position = Vector2(0, -108.00005)
-scale = Vector2(0.99999994, 1.2378856)
-texture = ExtResource("7_teo0j")
-
-[node name="Ground" type="Sprite2D" parent="Background1" unique_id=550722238]
-position = Vector2(-148.33339, 569.99994)
-scale = Vector2(2.140853, 0.5146627)
-texture = ExtResource("5_0bk6a")
-
-[node name="Sky" type="Sprite2D" parent="Background1" unique_id=134708252]
-z_index = -10
-position = Vector2(-194.66656, -81.33331)
-scale = Vector2(1.3333333, 1.3333333)
-texture = ExtResource("3_ur07v")
-
-[node name="Forest" type="Sprite2D" parent="Background1" unique_id=117998769]
-z_index = -5
-position = Vector2(-191.33325, 228.66664)
-scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("4_0bk6a")
-
-[node name="Background2" type="CanvasGroup" parent="." unique_id=8425952]
-position = Vector2(499, -131)
-scale = Vector2(0.29999995, 0.29999995)
-
-[node name="Tree" type="Sprite2D" parent="Background2" unique_id=596067096]
-z_index = -2
-position = Vector2(0, -108.00005)
-scale = Vector2(0.99999994, 1.2378856)
-texture = ExtResource("7_teo0j")
-
-[node name="Ground" type="Sprite2D" parent="Background2" unique_id=1407397309]
-position = Vector2(-148.33339, 569.99994)
-scale = Vector2(2.140853, 0.5146627)
-texture = ExtResource("5_0bk6a")
-
-[node name="Sky" type="Sprite2D" parent="Background2" unique_id=1955861660]
-z_index = -10
-position = Vector2(-194.66656, -81.33331)
-scale = Vector2(1.3333333, 1.3333333)
-texture = ExtResource("3_ur07v")
-
-[node name="Forest" type="Sprite2D" parent="Background2" unique_id=84666695]
-z_index = -5
-position = Vector2(-191.33325, 228.66664)
-scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("4_0bk6a")
-
-[node name="Background3" type="CanvasGroup" parent="." unique_id=1962465269]
-position = Vector2(939.00006, -132.00002)
-scale = Vector2(0.29999995, 0.29999995)
-
-[node name="Tree" type="Sprite2D" parent="Background3" unique_id=632930444]
-z_index = -2
-position = Vector2(0, -108.00005)
-scale = Vector2(0.99999994, 1.2378856)
-texture = ExtResource("7_teo0j")
-
-[node name="Ground" type="Sprite2D" parent="Background3" unique_id=436092019]
-position = Vector2(-148.33339, 569.99994)
-scale = Vector2(2.140853, 0.5146627)
-texture = ExtResource("5_0bk6a")
-
-[node name="Sky" type="Sprite2D" parent="Background3" unique_id=1396171074]
-z_index = -10
-position = Vector2(-194.66656, -81.33331)
-scale = Vector2(1.3333333, 1.3333333)
-texture = ExtResource("3_ur07v")
-
-[node name="Forest" type="Sprite2D" parent="Background3" unique_id=474561072]
-z_index = -5
-position = Vector2(-191.33325, 228.66664)
-scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("4_0bk6a")
-
-[node name="MushroomEnemy" parent="." unique_id=1484630187 instance=ExtResource("8_28edb")]
+[node name="Background group" type="Node2D" parent="." unique_id=365737182]
 position = Vector2(481, -44)
+scale = Vector2(0.5, 0.5)
+
+[node name="Background1" type="CanvasGroup" parent="Background group" unique_id=864049183]
+position = Vector2(-838, -174.00003)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background1" unique_id=1736307199]
+z_index = -2
+position = Vector2(-2.543132e-05, -258.00003)
+scale = Vector2(0.99999994, 1.612335)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background1" unique_id=550722238]
+position = Vector2(-148.33339, 670.58344)
+scale = Vector2(2.140853, 0.8096289)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background1" unique_id=134708252]
+z_index = -10
+position = Vector2(-194.66656, -236.33337)
+scale = Vector2(1.3333333, 1.7100042)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background1" unique_id=117998769]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background2" type="CanvasGroup" parent="Background group" unique_id=8425952]
+position = Vector2(36, -174)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background2" unique_id=596067096]
+z_index = -2
+position = Vector2(-2.5431318e-05, -253.00006)
+scale = Vector2(0.99999994, 1.6013217)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background2" unique_id=1407397309]
+position = Vector2(-148.33339, 662.25006)
+scale = Vector2(2.140853, 0.7851909)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background2" unique_id=1955861660]
+z_index = -10
+position = Vector2(-194.66656, -238.00002)
+scale = Vector2(1.3333333, 1.7140545)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background2" unique_id=84666695]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background3" type="CanvasGroup" parent="Background group" unique_id=1962465269]
+position = Vector2(916.0001, -176.00003)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background3" unique_id=632930444]
+z_index = -2
+position = Vector2(-2.543132e-05, -249.66675)
+scale = Vector2(0.99999994, 1.5939796)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background3" unique_id=436092019]
+position = Vector2(-148.33339, 655.5834)
+scale = Vector2(2.140853, 0.7656406)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background3" unique_id=1396171074]
+z_index = -10
+position = Vector2(-194.66656, -229.66672)
+scale = Vector2(1.3333333, 1.6938032)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background3" unique_id=474561072]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background4" type="CanvasGroup" parent="Background group" unique_id=920017096]
+position = Vector2(1788, -176)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background4" unique_id=522574153]
+z_index = -2
+position = Vector2(-2.543132e-05, -249.66675)
+scale = Vector2(0.99999994, 1.5939796)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background4" unique_id=87733981]
+position = Vector2(-148.33339, 655.5834)
+scale = Vector2(2.140853, 0.7656406)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background4" unique_id=1280219497]
+z_index = -10
+position = Vector2(-194.66656, -229.66672)
+scale = Vector2(1.3333333, 1.6938032)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background4" unique_id=1047962841]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background5" type="CanvasGroup" parent="Background group" unique_id=2105936719]
+position = Vector2(2632, -176)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background5" unique_id=1802544589]
+z_index = -2
+position = Vector2(-2.543132e-05, -249.66675)
+scale = Vector2(0.99999994, 1.5939796)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background5" unique_id=1868831840]
+position = Vector2(-148.33339, 655.5834)
+scale = Vector2(2.140853, 0.7656406)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background5" unique_id=366007570]
+z_index = -10
+position = Vector2(-194.66656, -229.66672)
+scale = Vector2(1.3333333, 1.6938032)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background5" unique_id=1036273557]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background6" type="CanvasGroup" parent="Background group" unique_id=877732672]
+position = Vector2(3494, -176)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background6" unique_id=1560294364]
+z_index = -2
+position = Vector2(-2.543132e-05, -249.66675)
+scale = Vector2(0.99999994, 1.5939796)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background6" unique_id=234559460]
+position = Vector2(-148.33339, 655.5834)
+scale = Vector2(2.140853, 0.7656406)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background6" unique_id=358839366]
+z_index = -10
+position = Vector2(-194.66656, -229.66672)
+scale = Vector2(1.3333333, 1.6938032)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background6" unique_id=1232607877]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background7" type="CanvasGroup" parent="Background group" unique_id=702147178]
+position = Vector2(4352, -176)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background7" unique_id=1514444877]
+z_index = -2
+position = Vector2(-2.543132e-05, -249.66675)
+scale = Vector2(0.99999994, 1.5939796)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background7" unique_id=1743962236]
+position = Vector2(-148.33339, 655.5834)
+scale = Vector2(2.140853, 0.7656406)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background7" unique_id=123953510]
+z_index = -10
+position = Vector2(-194.66656, -229.66672)
+scale = Vector2(1.3333333, 1.6938032)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background7" unique_id=202179709]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Background8" type="CanvasGroup" parent="Background group" unique_id=905592752]
+position = Vector2(5224, -176)
+scale = Vector2(0.5999999, 0.5999999)
+
+[node name="Tree" type="Sprite2D" parent="Background group/Background8" unique_id=1307871913]
+z_index = -2
+position = Vector2(-2.543132e-05, -249.66675)
+scale = Vector2(0.99999994, 1.5939796)
+texture = ExtResource("7_teo0j")
+
+[node name="Ground" type="Sprite2D" parent="Background group/Background8" unique_id=1490446198]
+position = Vector2(-148.33339, 655.5834)
+scale = Vector2(2.140853, 0.7656406)
+texture = ExtResource("5_0bk6a")
+
+[node name="Sky" type="Sprite2D" parent="Background group/Background8" unique_id=42153481]
+z_index = -10
+position = Vector2(-194.66656, -229.66672)
+scale = Vector2(1.3333333, 1.6938032)
+texture = ExtResource("3_ur07v")
+
+[node name="Forest" type="Sprite2D" parent="Background group/Background8" unique_id=1839094509]
+z_index = -5
+position = Vector2(-191.33325, 228.66664)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("4_0bk6a")
+
+[node name="Platforms" type="Node2D" parent="." unique_id=711359940]
+position = Vector2(62, -131.00002)
+scale = Vector2(0.29999995, 0.29999995)
+
+[node name="Platform1" type="Sprite2D" parent="Platforms" unique_id=815744026]
+z_index = -1
+position = Vector2(403.33337, 193.33342)
+scale = Vector2(1.3333335, 1.3333335)
+texture = ExtResource("6_b0ve4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform1" unique_id=1618679398]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform1/StaticBody2D" unique_id=646107718]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform2" type="Sprite2D" parent="Platforms" unique_id=838361379]
+z_index = -1
+position = Vector2(873.33344, 3.3334045)
+scale = Vector2(1.3333335, 1.3333335)
+texture = ExtResource("6_b0ve4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform2" unique_id=1101916316]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform2/StaticBody2D" unique_id=1881330883]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform3" type="Sprite2D" parent="Platforms" unique_id=36918562]
+z_index = -1
+position = Vector2(1919.0001, 3.3334045)
+scale = Vector2(7.670214, 1.3333335)
+texture = ExtResource("6_b0ve4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform3" unique_id=1936408572]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform3/StaticBody2D" unique_id=1681438134]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cpl0xl5xn3gcy"]
+
+[ext_resource type="Script" uid="uid://cbbnimkxxu77j" path="res://scripts/projectiles/enemy_bullet.gd" id="1_ytq8a"]
+[ext_resource type="Texture2D" uid="uid://by8sihp8yy7vx" path="res://assets/sprites/bullets/weapon_peashot_main_0001.png" id="2_oo3ra"]
+[ext_resource type="Texture2D" uid="uid://bnd5n2pndieka" path="res://assets/sprites/bullets/weapon_peashot_main_0002.png" id="3_co6v0"]
+[ext_resource type="Texture2D" uid="uid://bu1gwch7ebicx" path="res://assets/sprites/bullets/weapon_peashot_main_0003.png" id="4_otlnm"]
+[ext_resource type="Texture2D" uid="uid://d1tesin6ravng" path="res://assets/sprites/bullets/weapon_peashot_main_0004.png" id="5_kfx5p"]
+[ext_resource type="Texture2D" uid="uid://daitvr8cb7uih" path="res://assets/sprites/bullets/weapon_peashot_main_0005.png" id="6_n87rv"]
+[ext_resource type="Texture2D" uid="uid://s8ci7pabklc0" path="res://assets/sprites/bullets/weapon_peashot_main_0006.png" id="7_x61qw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57fuv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4opch"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oo3ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_co6v0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_otlnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kfx5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n87rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x61qw")
+}],
+"loop": true,
+"name": &"main",
+"speed": 12.0
+}]
+
+[node name="Bullet" type="Area2D" unique_id=1801235828]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ytq8a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=796767411]
+shape = SubResource("CircleShape2D_57fuv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=21306949]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1691707827]
+sprite_frames = SubResource("SpriteFrames_4opch")
+animation = &"main"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

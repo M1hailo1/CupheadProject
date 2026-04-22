@@ -1,12 +1,12 @@
 extends Area2D
 
-const SPEED = 600.0
+const SPEED = 450.0
 var direction = 1
  
 func _ready():
 	$CollisionShape2D.disabled = true
 	$AnimatedSprite2D.play("main")
-	await get_tree().create_timer(0.01).timeout
+	await get_tree().create_timer(0.1).timeout
 	$CollisionShape2D.disabled = false
 
 func _physics_process(delta: float) -> void:
