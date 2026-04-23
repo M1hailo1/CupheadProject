@@ -3,7 +3,7 @@ extends Area2D
 var player = null
 const SPEED = 120.0
 var velocity = Vector2.ZERO
-var homing = true
+var homing_timer = 2.0
 
 func _ready():
 	$AnimatedSprite2D.play("fly")
@@ -11,12 +11,10 @@ func _ready():
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	if player and homing:
-		var to_player = player.global_position - global_position
-		if velocity != Vector2.ZERO and velocity.dot(to_player) < 0:
-			homing = false
-		else:
-			velocity = to_player.normalized() * SPEED
+	if player and homing_timer > 0:
+		homing_timer -= delta
+		var target_velocity = (player.global_position - global_position).normalized() * SPEED
+		velocity = velocity.lerp(target_velocity, 0.05)
 	
 	position += velocity * delta
 

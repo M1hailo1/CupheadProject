@@ -44,6 +44,10 @@ func _physics_process(delta: float) -> void:
 	for area in $Hurtbox.get_overlapping_areas():
 		if area.name == "BossTrigger":
 			continue
+		if area.name == "MeleeHitboxHigh":
+			continue
+		if area.name == "MeleeHitboxLow":
+			continue
 		take_damage()
 		break
 	
@@ -85,6 +89,10 @@ func die():
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "BossTrigger":
+		return
+	if area.name == "MeleeHitboxHigh":
+		return
+	if area.name == "MeleeHitboxLow":
 		return
 	take_damage()
 	

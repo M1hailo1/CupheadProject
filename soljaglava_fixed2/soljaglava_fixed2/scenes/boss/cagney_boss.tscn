@@ -111,7 +111,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 12.0
+"speed": 6.0
 }, {
 "frames": [],
 "loop": true,
@@ -306,10 +306,10 @@ animations = [{
 size = Vector2(150, 300)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw3ce"]
-size = Vector2(155, 305)
+size = Vector2(155, 432.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mjvl"]
-size = Vector2(1500, 100)
+size = Vector2(1000, 80)
 
 [node name="CagneyBoss" type="Node2D" unique_id=1926401219]
 scale = Vector2(0.4, 0.4)
@@ -328,12 +328,23 @@ shape = SubResource("RectangleShape2D_r6p5f")
 [node name="Hitbox" type="Area2D" parent="." unique_id=714023124]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2038566728]
+position = Vector2(0, -26.249966)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_yw3ce")
 
-[node name="MeleeHitbox" type="Area2D" parent="." unique_id=304868922]
+[node name="MeleeHitboxHigh" type="Area2D" parent="." unique_id=761655833]
+position = Vector2(-367.5, -42.500015)
+monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox" unique_id=738987000]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitboxHigh" unique_id=1753341400]
+shape = SubResource("RectangleShape2D_0mjvl")
+
+[node name="MeleeHitboxLow" type="Area2D" parent="." unique_id=583776265]
+position = Vector2(-367.5, 157.49998)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitboxLow" unique_id=615764705]
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_0mjvl")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_entered" from="MeleeHitbox" to="." method="_on_melee_hitbox_body_entered"]

@@ -37,8 +37,14 @@ func _physics_process(delta: float) -> void:
 
 func take_damage():
 	hp -= 1
+	flash()
 	if hp <= 0:
 		queue_free()
+		
+func flash():
+	$AnimatedSprite2D.modulate = Color(0.813, 0.408, 0.0, 1.0)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

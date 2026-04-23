@@ -3,11 +3,12 @@ extends Node2D
 enum State { IDLE, HOMING, FACE_HIGH, FACE_LOW, DEATH }
 
 var state = State.IDLE
-var hp = 20
+var hp = 50
 var attack_timer = 3.0
 var attack_index = 0
 var player = null
 var active = false
+var attacking = false
 
 var homing_bullet_scene = preload("res://scenes/projectiles/homing_bullet.tscn")
 
@@ -28,11 +29,14 @@ func _physics_process(delta: float) -> void:
 			next_attack()
 
 func next_attack():
+	if attacking:
+		return
+	attacking = true
 	attack_index += 1
 	match attack_index % 3:
-		0: start_homing.call_deferred()
-		1: start_face_high.call_deferred (zzz   )
-		2: start_face_low.call_deferrez d  ()
+		0: start_homing()
+		1: start_face_high()
+		2: start_face_low()
 
 func start_homing():
 	state = State.HOMING
@@ -43,6 +47,7 @@ func start_homing():
 	await get_tree().create_timer(1.0).timeout
 	state = State.IDLE
 	attack_timer = 2.0
+	attacking = false
 
 func spawn_homing_bullet():
 	if player:
@@ -54,40 +59,50 @@ func spawn_homing_bullet():
 func start_face_high():
 	state = State.FACE_HIGH
 	$AnimatedSprite2D.play("face_high")
-	$MeleeHitbox.monitoring = true
-	await get_tree().create_timer(2.0).timeout
-	$MeleeHitbox.monitoring = false
+	$MeleeHitboxHigh.monitoring = true
+	await get_tree().create_timer(0.7).timeout
+	if $MeleeHitboxHigh.overlaps_body(player):
+		player.take_damage()
+	await get_tree().create_timer(0.7).timeout
+	$MeleeHitboxHigh.monitoring = false
 	state = State.IDLE
 	attack_timer = 2.0
+	attacking = false
 
 func start_face_low():
 	state = State.FACE_LOW
 	$AnimatedSprite2D.play("face_low")
-	$MeleeHitbox.monitoring = true
-	await get_tree().create_timer(2.0).timeout
-	$MeleeHitbox.monitoring = false
+	$MeleeHitboxLow.monitoring = true
+	await get_tree().create_timer(0.7).timeout
+	if $MeleeHitboxLow.overlaps_body(player):
+		player.take_damage()
+	await get_tree().create_timer(0.7).timeout
+	$MeleeHitboxLow.monitoring = false
 	state = State.IDLE
 	attack_timer = 2.0
+	attacking = false
 
 func take_damage():
 	if state == State.DEATH:
 		return
 	hp -= 1
 	print("Boss HP: ", hp)
+	flash()
 	if hp <= 0:
 		die()
+
+func flash():
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.1).timeout
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 func die():
 	state = State.DEATH
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
-	queue_free()
+	$AnimatedSprite2D.stop()
+	$AnimatedSprite2D.frame = $AnimatedSprite2D.sprite_frames.get_frame_count("death") - 1
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		body.take_damage()
-
-
-func _on_melee_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.take_damage()
