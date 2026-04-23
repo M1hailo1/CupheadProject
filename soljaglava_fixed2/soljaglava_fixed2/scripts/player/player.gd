@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.modulate.a = 1.0
 	
 	for area in $Hurtbox.get_overlapping_areas():
+		if area.name == "BossTrigger":
+			continue
 		take_damage()
 		break
 	
@@ -82,6 +84,8 @@ func die():
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.name == "BossTrigger":
+		return
 	take_damage()
 	
 func update_animation() -> void:

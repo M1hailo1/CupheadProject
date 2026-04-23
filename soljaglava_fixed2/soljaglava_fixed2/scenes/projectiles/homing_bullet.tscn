@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bbl8i27r1hwcb"]
+
+[ext_resource type="Texture2D" uid="uid://jyeyaex2llt2" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0001.png" id="1_qtvdm"]
+[ext_resource type="Script" uid="uid://c0f0hb551en2y" path="res://scripts/projectiles/homing_bullet.gd" id="1_xincb"]
+[ext_resource type="Texture2D" uid="uid://bqahec3o71ie0" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0002.png" id="2_xincb"]
+[ext_resource type="Texture2D" uid="uid://cxdug56jy1d42" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0003.png" id="3_lqdo2"]
+[ext_resource type="Texture2D" uid="uid://cnah2ogw5xvg8" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0004.png" id="4_kjmwo"]
+[ext_resource type="Texture2D" uid="uid://csi7gre3l7brw" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0005.png" id="5_4d3p4"]
+[ext_resource type="Texture2D" uid="uid://b0kjyckuggqut" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0006.png" id="6_a16jc"]
+[ext_resource type="Texture2D" uid="uid://cfgvusymde0o7" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0007.png" id="7_64b5j"]
+[ext_resource type="Texture2D" uid="uid://c5nikru8o1wym" path="res://assets/sprites/boss/cagney/firing seeds/fly/flower_mini_fly_0008.png" id="8_t6ijj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgtek"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qtvdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xincb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lqdo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kjmwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4d3p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a16jc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_64b5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t6ijj")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtvdm"]
+radius = 15.0
+
+[node name="HomingBullet" type="Area2D" unique_id=359362389]
+script = ExtResource("1_xincb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1517474297]
+position = Vector2(0, -19)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_rgtek")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313117615]
+shape = SubResource("CircleShape2D_qtvdm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1530993550]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
