@@ -5,3 +5,4 @@ func _on_boss_trigger_body_entered(body: Node2D) -> void:
 		var camera = body.get_node("Camera2D")
 		camera.limit_left = 2300
 		camera.limit_right = 3380
+		$LeftBossWall.position.x = 2550

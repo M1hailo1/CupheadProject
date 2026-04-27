@@ -46,6 +46,7 @@ func start_homing():
 		spawn_homing_bullet()
 	await get_tree().create_timer(1.0).timeout
 	state = State.IDLE
+	$AnimatedSprite2D.play("idle")
 	attack_timer = 2.0
 	attacking = false
 
@@ -66,6 +67,7 @@ func start_face_high():
 	await get_tree().create_timer(0.7).timeout
 	$MeleeHitboxHigh.monitoring = false
 	state = State.IDLE
+	$AnimatedSprite2D.play("idle")
 	attack_timer = 2.0
 	attacking = false
 
@@ -79,6 +81,7 @@ func start_face_low():
 	await get_tree().create_timer(0.7).timeout
 	$MeleeHitboxLow.monitoring = false
 	state = State.IDLE
+	$AnimatedSprite2D.play("idle")
 	attack_timer = 2.0
 	attacking = false
 

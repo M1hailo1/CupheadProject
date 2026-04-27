@@ -4,6 +4,7 @@ const SPEED = 450.0
 var direction = 1
  
 func _ready():
+	$AnimatedSprite2D.modulate = Color(1, 0.3, 0.3)
 	$CollisionShape2D.disabled = true
 	$AnimatedSprite2D.play("main")
 	await get_tree().create_timer(0.1).timeout

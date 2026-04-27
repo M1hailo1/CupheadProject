@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dvrrkqovsjdtd"]
+
+[ext_resource type="Script" uid="uid://3c3idty7w5c3" path="res://scripts/world/death_pit.gd" id="1_o5hg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v3tv"]
+size = Vector2(500, 200)
+
+[node name="DeathPit" type="Area2D" unique_id=348701941]
+collision_mask = 3
+script = ExtResource("1_o5hg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=38078552]
+shape = SubResource("RectangleShape2D_2v3tv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
