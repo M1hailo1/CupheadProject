@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://dv7nnc0ar0foh" path="res://scripts/world/level_1.gd" id="1_mt152"]
 [ext_resource type="PackedScene" uid="uid://bfnuy8p62it8t" path="res://scenes/player/player.tscn" id="1_pq706"]
 [ext_resource type="PackedScene" uid="uid://d00lmae2onh6e" path="res://scenes/enemies/basic_enemy.tscn" id="2_5ebu0"]
+[ext_resource type="Script" uid="uid://b1d3t758yw7rn" path="res://scripts/ui/controls_screen.gd" id="4_3wpl1"]
 [ext_resource type="Texture2D" uid="uid://bsv4orqt4ybex" path="res://assets/sprites/world/bg_tree_trunk_0003.png" id="5_0y0dc"]
 [ext_resource type="Texture2D" uid="uid://bwqogk7qd5h3g" path="res://assets/sprites/world/lv1-1_bg_sky.png" id="7_0y0dc"]
+[ext_resource type="Script" uid="uid://disqwtweulplt" path="res://scripts/world/background_group.gd" id="7_e41m3"]
 [ext_resource type="PackedScene" uid="uid://foeo3usbosbu" path="res://scenes/enemies/mushroom_enemy.tscn" id="8_28edb"]
 [ext_resource type="Texture2D" uid="uid://ch7aw5krbvi7e" path="res://assets/sprites/world/lv1-1_bgfar_far-forest-start.png" id="8_mt152"]
 [ext_resource type="Texture2D" uid="uid://dlkxti3a31gs1" path="res://assets/sprites/world/lv1-1_mg_floating-platform-single_0001.png" id="9_0y0dc"]
@@ -78,6 +80,41 @@ offset_top = 20.0
 offset_right = 60.0
 offset_bottom = 43.0
 
+[node name="LivesLabel" type="Label" parent="UI" unique_id=418162811]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 77.0
+offset_bottom = 63.0
+text = "Lives: 3"
+
+[node name="ControlsScreen" type="CanvasLayer" parent="." unique_id=1888589217]
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 0, 0)
+script = ExtResource("4_3wpl1")
+
+[node name="ColorRect" type="ColorRect" parent="ControlsScreen" unique_id=1515036330]
+offset_left = 262.49997
+offset_top = 116.25001
+offset_right = 2182.5
+offset_bottom = 1196.25
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="ControlsScreen" unique_id=170006496]
+offset_left = 1022.5
+offset_top = 516.25
+offset_right = 1354.5
+offset_bottom = 849.25
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS
+
+Arrow Keys - Move
+Space - Jump
+Z (Hold) - Shoot
+
+Press any key to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Enemies" type="Node2D" parent="." unique_id=1408686590]
 position = Vector2(-130, -33)
 scale = Vector2(0.65, 0.65)
@@ -109,6 +146,7 @@ scale = Vector2(0.76923084, 0.76923084)
 [node name="Background group" type="Node2D" parent="." unique_id=365737182]
 position = Vector2(481, -44)
 scale = Vector2(0.5, 0.5)
+script = ExtResource("7_e41m3")
 
 [node name="Background1" type="CanvasGroup" parent="Background group" unique_id=864049183]
 position = Vector2(-838, -174.00003)

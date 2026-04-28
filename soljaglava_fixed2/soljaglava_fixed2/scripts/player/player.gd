@@ -17,8 +17,8 @@ var facing = 1
 var bullet_scene = preload("res://scenes/projectiles/player_bullet.tscn")
 
 func _ready():
-	get_tree().get_root().find_child("HPLabel", true, false).text = "HP: " + str(hp)
-
+	update_hud()
+	
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
 	
@@ -61,6 +61,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	update_animation()
+	
+func update_hud():
+	get_tree().get_root().find_child("HPLabel", true, false).text = "HP: " + str(hp)
+	get_tree().get_root().find_child("LivesLabel", true, false).text = "Lives: " + str(GameManager.lives)
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
@@ -79,11 +83,17 @@ func take_damage():
 	print("HP: ", hp)
 	if hp<=0:
 		die()
-	get_tree().get_root().find_child("HPLabel", true, false).text = "HP: " + str(hp)
+	update_hud()
 
 func die():
-	print("YOU DIED")
 	GameManager.lose_life()
+	if GameManager.lives <= 0:
+		GameManager.lives = 3
+		get_tree().reload_current_scene.call_deferred()
+		return
+	hp = MAX_HP
+	invincible = true
+	invincible_timer = 2.0
 	get_tree().reload_current_scene.call_deferred()
 
 

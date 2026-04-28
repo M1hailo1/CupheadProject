@@ -3,7 +3,7 @@ extends Node2D
 enum State { IDLE, HOMING, FACE_HIGH, FACE_LOW, DEATH }
 
 var state = State.IDLE
-var hp = 50
+var hp = 70
 var attack_timer = 3.0
 var attack_index = 0
 var player = null

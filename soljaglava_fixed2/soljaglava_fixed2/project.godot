@@ -13,7 +13,7 @@ config_version=5
 config/name="soljaglava"
 run/main_scene="uid://dngtjh1mii0f3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://c8jxa4t0pox7r"
+config/icon="uid://pt6dwx85fmat"
 run/icon="res://icon.svg"
 
 [autoload]
