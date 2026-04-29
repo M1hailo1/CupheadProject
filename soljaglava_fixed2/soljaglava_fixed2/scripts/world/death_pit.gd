@@ -5,3 +5,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.die()
 	elif body.has_method("take_damage"):
 		body.queue_free()
+
+func _ready():
+	$AnimatedSprite2D.play("spike")
+	$AnimatedSprite2D2.play("spike")

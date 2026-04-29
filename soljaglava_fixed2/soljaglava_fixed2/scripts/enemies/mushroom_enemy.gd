@@ -5,7 +5,9 @@ var hp = 3
 var shoot_timer = 3.0
 const SHOOT_COOLDOWN = 3.0
 var player = null
+
 var bullet_scene = preload("res://scenes/projectiles/enemy_bullet.tscn")
+var hit_sound = preload("res://assets/audio/universfield-falling-game-character-352287.mp3")
 
 func _ready():
 	player = get_tree().get_root().find_child("Player", true, false)
@@ -41,6 +43,7 @@ func attack():
 
 func take_damage():
 	hp -= 1
+	play_sound(hit_sound,-12.0)
 	flash()
 	if hp <= 0:
 		queue_free()
@@ -53,3 +56,12 @@ func flash():
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.take_damage()
+		
+func play_sound(stream, volume_db = 0.0):
+	var player = AudioStreamPlayer.new()
+	get_tree().get_root().add_child(player)
+	player.stream = stream
+	player.volume_db = volume_db
+	player.play()
+	await get_tree().create_timer(1.0).timeout
+	player.queue_free()

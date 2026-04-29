@@ -14,16 +14,23 @@ var invincible_timer = 0.0
 const INVINCIBLE_TIME = 1.5
 
 var facing = 1
+
+var shoot_sound = preload("res://assets/audio/universfield-gunshot-352466.mp3")
+var jump_sound = preload("res://assets/audio/Jump sound.mp3")
+var hit_sound = preload("res://assets/audio/ribhavagrawal-hit-by-a-wood-230542.mp3")
+
 var bullet_scene = preload("res://scenes/projectiles/player_bullet.tscn")
 
 func _ready():
 	update_hud()
+	get_tree().get_root().find_child("LevelLabel", true, false).text = "Level " + str(GameManager.current_level)
 	
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		play_sound(jump_sound,-5.0)
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	velocity.x = direction * SPEED
@@ -73,6 +80,7 @@ func shoot():
 	spawn_offset.x = abs(spawn_offset.x) * facing  # flips X based on direction
 	bullet.position = global_position + spawn_offset
 	get_parent().add_child(bullet)
+	play_sound(shoot_sound,-17.0)
 	
 func take_damage():
 	if invincible:
@@ -81,21 +89,20 @@ func take_damage():
 	invincible=true
 	invincible_timer=INVINCIBLE_TIME
 	print("HP: ", hp)
+	play_sound(hit_sound,-5.0)
 	if hp<=0:
 		die()
 	update_hud()
 
+
 func die():
 	GameManager.lose_life()
 	if GameManager.lives <= 0:
-		GameManager.lives = 3
-		get_tree().reload_current_scene.call_deferred()
 		return
 	hp = MAX_HP
 	invincible = true
 	invincible_timer = 2.0
-	get_tree().reload_current_scene.call_deferred()
-
+	get_tree().change_scene_to_file.call_deferred(GameManager.levels[GameManager.current_level])
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.name == "BossTrigger":
@@ -121,3 +128,12 @@ func update_animation() -> void:
 		$AnimatedSprite2D.flip_h = false
 	else:
 		$AnimatedSprite2D.flip_h = true
+
+func play_sound(stream, volume_db = 0.0):
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.stream = stream
+	player.volume_db = volume_db
+	player.play()
+	await player.finished
+	player.queue_free()

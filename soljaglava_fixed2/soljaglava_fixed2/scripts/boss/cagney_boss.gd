@@ -9,7 +9,9 @@ var attack_index = 0
 var player = null
 var active = false
 var attacking = false
+var boss_fight_started = false
 
+var hit_sound = preload("res://assets/audio/universfield-falling-game-character-352287.mp3")
 var homing_bullet_scene = preload("res://scenes/projectiles/homing_bullet.tscn")
 
 func _ready():
@@ -86,10 +88,13 @@ func start_face_low():
 	attacking = false
 
 func take_damage():
+	if not boss_fight_started:
+		return
 	if state == State.DEATH:
 		return
 	hp -= 1
 	print("Boss HP: ", hp)
+	play_sound(hit_sound,-12.0)
 	flash()
 	if hp <= 0:
 		die()
@@ -105,7 +110,18 @@ func die():
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.stop()
 	$AnimatedSprite2D.frame = $AnimatedSprite2D.sprite_frames.get_frame_count("death") - 1
-
+	await get_tree().create_timer(3.0).timeout
+	GameManager.next_level()
+	
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.take_damage()
+		
+func play_sound(stream, volume_db = 0.0):
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+	player.stream = stream
+	player.volume_db = volume_db
+	player.play()
+	await player.finished
+	player.queue_free()

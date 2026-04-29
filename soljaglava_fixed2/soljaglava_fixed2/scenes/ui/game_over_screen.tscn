@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b5m5lry6d2o1f"]
+
+[ext_resource type="Script" uid="uid://ffwdt2mjqb4c" path="res://scripts/ui/game_over_screen.gd" id="1_dnrai"]
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=325511776]
+script = ExtResource("1_dnrai")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=815414915]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=77646485]
+offset_left = 760.0
+offset_top = 400.0
+offset_right = 1218.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER"
+
+[node name="RestartLabel" type="Label" parent="." unique_id=442665341]
+offset_left = 858.0
+offset_top = 560.0
+offset_right = 1131.0
+offset_bottom = 605.0
+theme_override_font_sizes/font_size = 32
+text = "Press R to Restart"
