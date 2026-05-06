@@ -22,8 +22,8 @@ var hit_sound = preload("res://assets/audio/ribhavagrawal-hit-by-a-wood-230542.m
 var bullet_scene = preload("res://scenes/projectiles/player_bullet.tscn")
 
 func _ready():
+	await get_tree().process_frame
 	update_hud()
-	get_tree().get_root().find_child("LevelLabel", true, false).text = "Level " + str(GameManager.current_level)
 	
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
@@ -68,16 +68,31 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	update_animation()
+	update_hud()
 	
 func update_hud():
-	get_tree().get_root().find_child("HPLabel", true, false).text = "HP: " + str(hp)
-	get_tree().get_root().find_child("LivesLabel", true, false).text = "Lives: " + str(GameManager.lives)
+	var hp_label = get_tree().get_root().find_child("HPLabel", true, false)
+	var lives_label = get_tree().get_root().find_child("LivesLabel", true, false)
+	var level_label = get_tree().get_root().find_child("LevelLabel", true, false)
+	var timer_label = get_tree().get_root().find_child("TimerLabel", true, false)
+	var score_label = get_tree().get_root().find_child("ScoreLabel", true, false)
+	
+	if hp_label: hp_label.text = "HP: " + str(hp)
+	if lives_label: lives_label.text = "Lives: " + str(GameManager.lives)
+	if level_label: level_label.text = "Level: " + str(GameManager.current_level)
+	if timer_label:
+		var minutes = int(GameManager.time_elapsed) / 60
+		var seconds = int(GameManager.time_elapsed) % 60
+		timer_label.text = "Time: %d:%02d" % [minutes, seconds]
+	if score_label:
+		GameManager.calculate_score()
+		score_label.text = "Score: " + str(GameManager.score)
 
 func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.direction = 1 if facing > 0 else -1
 	var spawn_offset = $BulletSpawnPoint.position
-	spawn_offset.x = abs(spawn_offset.x) * facing  # flips X based on direction
+	spawn_offset.x = abs(spawn_offset.x) * facing
 	bullet.position = global_position + spawn_offset
 	get_parent().add_child(bullet)
 	play_sound(shoot_sound,-17.0)

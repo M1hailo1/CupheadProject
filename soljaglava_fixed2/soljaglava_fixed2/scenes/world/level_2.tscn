@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dv7nnc0ar0foh" path="res://scripts/world/level_1.gd" id="1_o75aw"]
 [ext_resource type="Texture2D" uid="uid://c85oaedfdx6kj" path="res://assets/sprites/world/lv1-1_mg_ground_0002.png" id="2_f25h7"]
+[ext_resource type="PackedScene" uid="uid://c8n3n8a20r3dl" path="res://scenes/ui/hud.tscn" id="2_u43rp"]
 [ext_resource type="PackedScene" uid="uid://bfnuy8p62it8t" path="res://scenes/player/player.tscn" id="3_u43rp"]
-[ext_resource type="Script" uid="uid://b1d3t758yw7rn" path="res://scripts/ui/controls_screen.gd" id="4_s4qew"]
 [ext_resource type="PackedScene" uid="uid://d00lmae2onh6e" path="res://scenes/enemies/basic_enemy.tscn" id="5_mw8hb"]
 [ext_resource type="PackedScene" uid="uid://foeo3usbosbu" path="res://scenes/enemies/mushroom_enemy.tscn" id="6_woq5c"]
 [ext_resource type="Script" uid="uid://disqwtweulplt" path="res://scripts/world/background_group.gd" id="7_frlwa"]
@@ -34,6 +34,8 @@ size = Vector2(20, 600)
 
 [node name="Level2" type="Node2D" unique_id=1475615041]
 script = ExtResource("1_o75aw")
+
+[node name="HUD" parent="." unique_id=1006246229 instance=ExtResource("2_u43rp")]
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1879235709]
 
@@ -73,55 +75,6 @@ zoom = Vector2(2, 2)
 limit_top = -250
 limit_bottom = 100
 limit_smoothed = true
-
-[node name="UI" type="CanvasLayer" parent="." unique_id=1921890005]
-
-[node name="HPLabel" type="Label" parent="UI" unique_id=1164657839]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 60.0
-offset_bottom = 43.0
-
-[node name="LivesLabel" type="Label" parent="UI" unique_id=418162811]
-offset_left = 20.0
-offset_top = 40.0
-offset_right = 77.0
-offset_bottom = 63.0
-text = "Lives: 3"
-
-[node name="LevelLabel" type="Label" parent="UI" unique_id=2097381918]
-offset_left = 20.0
-offset_top = 60.0
-offset_right = 60.0
-offset_bottom = 83.0
-
-[node name="ControlsScreen" type="CanvasLayer" parent="." unique_id=1888589217]
-scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 0, 0)
-script = ExtResource("4_s4qew")
-
-[node name="ColorRect" type="ColorRect" parent="ControlsScreen" unique_id=1515036330]
-offset_left = 262.49997
-offset_top = 116.25001
-offset_right = 2182.5
-offset_bottom = 1196.25
-color = Color(0, 0, 0, 0.78431374)
-
-[node name="Label" type="Label" parent="ControlsScreen" unique_id=170006496]
-offset_left = 1022.5
-offset_top = 516.25
-offset_right = 1354.5
-offset_bottom = 849.25
-theme_override_font_sizes/font_size = 32
-text = "CONTROLS
-
-Arrow Keys - Move
-Space - Jump
-Z (Hold) - Shoot
-
-Press any key to start"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1408686590]
 position = Vector2(-130, -33)

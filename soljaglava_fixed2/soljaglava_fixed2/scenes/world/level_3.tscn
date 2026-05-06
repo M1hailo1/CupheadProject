@@ -1,22 +1,21 @@
-[gd_scene format=3 uid="uid://dngtjh1mii0f3"]
+[gd_scene format=3 uid="uid://1rpmur7edvgj"]
 
-[ext_resource type="Texture2D" uid="uid://c85oaedfdx6kj" path="res://assets/sprites/world/lv1-1_mg_ground_0002.png" id="1_0y0dc"]
-[ext_resource type="Texture2D" uid="uid://ca048trs2cwtj" path="res://assets/sprites/world/lv1-1_mg_ground_0001.png" id="1_8q1ex"]
-[ext_resource type="Script" uid="uid://dv7nnc0ar0foh" path="res://scripts/world/level_1.gd" id="1_mt152"]
-[ext_resource type="PackedScene" uid="uid://bfnuy8p62it8t" path="res://scenes/player/player.tscn" id="1_pq706"]
-[ext_resource type="PackedScene" uid="uid://d00lmae2onh6e" path="res://scenes/enemies/basic_enemy.tscn" id="2_5ebu0"]
-[ext_resource type="PackedScene" uid="uid://c8n3n8a20r3dl" path="res://scenes/ui/hud.tscn" id="2_6xhia"]
-[ext_resource type="Script" uid="uid://b1d3t758yw7rn" path="res://scripts/ui/controls_screen.gd" id="4_3wpl1"]
-[ext_resource type="Texture2D" uid="uid://bsv4orqt4ybex" path="res://assets/sprites/world/bg_tree_trunk_0003.png" id="5_0y0dc"]
-[ext_resource type="Texture2D" uid="uid://bwqogk7qd5h3g" path="res://assets/sprites/world/lv1-1_bg_sky.png" id="7_0y0dc"]
-[ext_resource type="Script" uid="uid://disqwtweulplt" path="res://scripts/world/background_group.gd" id="7_e41m3"]
-[ext_resource type="PackedScene" uid="uid://foeo3usbosbu" path="res://scenes/enemies/mushroom_enemy.tscn" id="8_28edb"]
-[ext_resource type="Texture2D" uid="uid://ch7aw5krbvi7e" path="res://assets/sprites/world/lv1-1_bgfar_far-forest-start.png" id="8_mt152"]
-[ext_resource type="Texture2D" uid="uid://dlkxti3a31gs1" path="res://assets/sprites/world/lv1-1_mg_floating-platform-single_0001.png" id="9_0y0dc"]
-[ext_resource type="PackedScene" uid="uid://ckidmgjrdt7kb" path="res://scenes/boss/cagney_boss.tscn" id="10_0y0dc"]
-[ext_resource type="PackedScene" uid="uid://dvrrkqovsjdtd" path="res://scenes/world/death_pit.tscn" id="12_2tgb3"]
-[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/Audio/atlasaudio-jazz-490623.mp3" id="15_nh2yv"]
-[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/Audio/aktasok-jazz-drum-jam-154270.mp3" id="16_ya7kl"]
+[ext_resource type="Script" uid="uid://dv7nnc0ar0foh" path="res://scripts/world/level_1.gd" id="1_cej2o"]
+[ext_resource type="Texture2D" uid="uid://c85oaedfdx6kj" path="res://assets/sprites/world/lv1-1_mg_ground_0002.png" id="2_887oc"]
+[ext_resource type="PackedScene" uid="uid://c8n3n8a20r3dl" path="res://scenes/ui/hud.tscn" id="2_cej2o"]
+[ext_resource type="PackedScene" uid="uid://bfnuy8p62it8t" path="res://scenes/player/player.tscn" id="3_jvd5w"]
+[ext_resource type="PackedScene" uid="uid://d00lmae2onh6e" path="res://scenes/enemies/basic_enemy.tscn" id="5_q2pob"]
+[ext_resource type="PackedScene" uid="uid://foeo3usbosbu" path="res://scenes/enemies/mushroom_enemy.tscn" id="6_c0rsg"]
+[ext_resource type="Script" uid="uid://disqwtweulplt" path="res://scripts/world/background_group.gd" id="7_qn3ax"]
+[ext_resource type="Texture2D" uid="uid://bsv4orqt4ybex" path="res://assets/sprites/world/bg_tree_trunk_0003.png" id="8_m6hpe"]
+[ext_resource type="Texture2D" uid="uid://ca048trs2cwtj" path="res://assets/sprites/world/lv1-1_mg_ground_0001.png" id="9_cukxa"]
+[ext_resource type="Texture2D" uid="uid://bwqogk7qd5h3g" path="res://assets/sprites/world/lv1-1_bg_sky.png" id="10_wnkr1"]
+[ext_resource type="Texture2D" uid="uid://ch7aw5krbvi7e" path="res://assets/sprites/world/lv1-1_bgfar_far-forest-start.png" id="11_ahhpx"]
+[ext_resource type="Texture2D" uid="uid://dlkxti3a31gs1" path="res://assets/sprites/world/lv1-1_mg_floating-platform-single_0001.png" id="12_fvhsf"]
+[ext_resource type="PackedScene" uid="uid://ckidmgjrdt7kb" path="res://scenes/boss/cagney_boss.tscn" id="13_xowxq"]
+[ext_resource type="PackedScene" uid="uid://dvrrkqovsjdtd" path="res://scenes/world/death_pit.tscn" id="14_6o407"]
+[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/Audio/atlasaudio-jazz-490623.mp3" id="15_jx38j"]
+[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/Audio/aktasok-jazz-drum-jam-154270.mp3" id="16_fy8fk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq706"]
 size = Vector2(7000, 20)
@@ -33,10 +32,10 @@ size = Vector2(50, 600)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt152"]
 size = Vector2(20, 600)
 
-[node name="Level1" type="Node2D" unique_id=1475615041]
-script = ExtResource("1_mt152")
+[node name="Level3" type="Node2D" unique_id=1475615041]
+script = ExtResource("1_cej2o")
 
-[node name="HUD" parent="." unique_id=1006246229 instance=ExtResource("2_6xhia")]
+[node name="HUD" parent="." unique_id=1006246229 instance=ExtResource("2_cej2o")]
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1879235709]
 
@@ -53,7 +52,7 @@ shape = SubResource("RectangleShape2D_28edb")
 position = Vector2(-274.78046, -210.55554)
 rotation = 1.470636
 scale = Vector2(1, 0.87467945)
-texture = ExtResource("1_0y0dc")
+texture = ExtResource("2_887oc")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=1589554888]
 position = Vector2(3305, 0)
@@ -65,9 +64,9 @@ shape = SubResource("RectangleShape2D_28edb")
 position = Vector2(273.00006, -175.99998)
 rotation = -1.4826511
 scale = Vector2(1, 0.87467945)
-texture = ExtResource("1_0y0dc")
+texture = ExtResource("2_887oc")
 
-[node name="Player" parent="." unique_id=610599533 instance=ExtResource("1_pq706")]
+[node name="Player" parent="." unique_id=610599533 instance=ExtResource("3_jvd5w")]
 position = Vector2(0, -40)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=357570861]
@@ -77,66 +76,38 @@ limit_top = -250
 limit_bottom = 100
 limit_smoothed = true
 
-[node name="ControlsScreen" type="CanvasLayer" parent="." unique_id=1888589217]
-scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 0, 0)
-script = ExtResource("4_3wpl1")
-
-[node name="ColorRect" type="ColorRect" parent="ControlsScreen" unique_id=1515036330]
-offset_left = 262.49997
-offset_top = 116.25001
-offset_right = 2182.5
-offset_bottom = 1196.25
-color = Color(0, 0, 0, 0.78431374)
-
-[node name="Label" type="Label" parent="ControlsScreen" unique_id=170006496]
-offset_left = 1022.5
-offset_top = 516.25
-offset_right = 1354.5
-offset_bottom = 849.25
-theme_override_font_sizes/font_size = 32
-text = "CONTROLS
-
-Arrow Keys - Move
-Space - Jump
-Z (Hold) - Shoot
-
-Press any key to start"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Enemies" type="Node2D" parent="." unique_id=1408686590]
 position = Vector2(-130, -33)
 scale = Vector2(0.65, 0.65)
 
-[node name="Enemy" parent="Enemies" unique_id=1412421172 instance=ExtResource("2_5ebu0")]
+[node name="Enemy" parent="Enemies" unique_id=1412421172 instance=ExtResource("5_q2pob")]
 position = Vector2(1149.2308, 0)
 scale = Vector2(1, 1)
 
-[node name="Enemy2" parent="Enemies" unique_id=644932758 instance=ExtResource("2_5ebu0")]
+[node name="Enemy2" parent="Enemies" unique_id=644932758 instance=ExtResource("5_q2pob")]
 position = Vector2(1550.7693, 0)
 scale = Vector2(1, 1)
 
-[node name="Enemy3" parent="Enemies" unique_id=378469509 instance=ExtResource("2_5ebu0")]
+[node name="Enemy3" parent="Enemies" unique_id=378469509 instance=ExtResource("5_q2pob")]
 position = Vector2(1189.2308, -226.15387)
 scale = Vector2(1, 1)
 
-[node name="MushroomEnemy" parent="Enemies" unique_id=1484630187 instance=ExtResource("8_28edb")]
+[node name="MushroomEnemy" parent="Enemies" unique_id=1484630187 instance=ExtResource("6_c0rsg")]
 position = Vector2(940.00006, -10.769234)
 scale = Vector2(0.76923084, 0.76923084)
 
-[node name="MushroomEnemy2" parent="Enemies" unique_id=1624352712 instance=ExtResource("8_28edb")]
+[node name="MushroomEnemy2" parent="Enemies" unique_id=1624352712 instance=ExtResource("6_c0rsg")]
 position = Vector2(672.30774, -230.76926)
 scale = Vector2(0.76923084, 0.76923084)
 
-[node name="MushroomEnemy3" parent="Enemies" unique_id=131198919 instance=ExtResource("8_28edb")]
+[node name="MushroomEnemy3" parent="Enemies" unique_id=131198919 instance=ExtResource("6_c0rsg")]
 position = Vector2(1338.4615, -10.769228)
 scale = Vector2(0.76923084, 0.76923084)
 
 [node name="Background group" type="Node2D" parent="." unique_id=365737182]
 position = Vector2(481, -44)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("7_e41m3")
+script = ExtResource("7_qn3ax")
 
 [node name="Background1" type="CanvasGroup" parent="Background group" unique_id=864049183]
 position = Vector2(-838, -174.00003)
@@ -146,24 +117,24 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -258.00003)
 scale = Vector2(0.99999994, 1.612335)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Ground" type="Sprite2D" parent="Background group/Background1" unique_id=550722238]
 position = Vector2(-148.33339, 670.58344)
 scale = Vector2(2.140853, 0.8096289)
-texture = ExtResource("1_8q1ex")
+texture = ExtResource("9_cukxa")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background1" unique_id=134708252]
 z_index = -10
 position = Vector2(-194.66656, -236.33337)
 scale = Vector2(1.3333333, 1.7100042)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background1" unique_id=117998769]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background2" type="CanvasGroup" parent="Background group" unique_id=8425952]
 position = Vector2(36, -174)
@@ -173,24 +144,24 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.5431318e-05, -253.00006)
 scale = Vector2(0.99999994, 1.6013217)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Ground" type="Sprite2D" parent="Background group/Background2" unique_id=1407397309]
 position = Vector2(-148.33339, 662.25006)
 scale = Vector2(2.140853, 0.7851909)
-texture = ExtResource("1_8q1ex")
+texture = ExtResource("9_cukxa")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background2" unique_id=1955861660]
 z_index = -10
 position = Vector2(-194.66656, -238.00002)
 scale = Vector2(1.3333333, 1.7140545)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background2" unique_id=84666695]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background3" type="CanvasGroup" parent="Background group" unique_id=1962465269]
 position = Vector2(916.0001, -176.00003)
@@ -200,24 +171,24 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -249.66675)
 scale = Vector2(0.99999994, 1.5939796)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Ground" type="Sprite2D" parent="Background group/Background3" unique_id=436092019]
 position = Vector2(-148.33339, 655.5834)
 scale = Vector2(2.140853, 0.7656406)
-texture = ExtResource("1_8q1ex")
+texture = ExtResource("9_cukxa")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background3" unique_id=1396171074]
 z_index = -10
 position = Vector2(-194.66656, -229.66672)
 scale = Vector2(1.3333333, 1.6938032)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background3" unique_id=474561072]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background4" type="CanvasGroup" parent="Background group" unique_id=920017096]
 position = Vector2(1788, -176)
@@ -227,19 +198,19 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -249.66675)
 scale = Vector2(0.99999994, 1.5939796)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background4" unique_id=1280219497]
 z_index = -10
 position = Vector2(-194.66656, -229.66672)
 scale = Vector2(1.3333333, 1.6938032)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background4" unique_id=1047962841]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background5" type="CanvasGroup" parent="Background group" unique_id=2105936719]
 position = Vector2(2632, -176)
@@ -249,19 +220,19 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -249.66675)
 scale = Vector2(0.99999994, 1.5939796)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background5" unique_id=366007570]
 z_index = -10
 position = Vector2(-194.66656, -229.66672)
 scale = Vector2(1.3333333, 1.6938032)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background5" unique_id=1036273557]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background6" type="CanvasGroup" parent="Background group" unique_id=877732672]
 position = Vector2(3494, -176)
@@ -271,19 +242,19 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -249.66675)
 scale = Vector2(0.99999994, 1.5939796)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background6" unique_id=358839366]
 z_index = -10
 position = Vector2(-194.66656, -229.66672)
 scale = Vector2(1.3333333, 1.6938032)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background6" unique_id=1232607877]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background7" type="CanvasGroup" parent="Background group" unique_id=702147178]
 position = Vector2(4352, -176)
@@ -293,24 +264,24 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -249.66675)
 scale = Vector2(0.99999994, 1.5939796)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Ground" type="Sprite2D" parent="Background group/Background7" unique_id=1743962236]
 position = Vector2(-148.33339, 655.5834)
 scale = Vector2(2.140853, 0.7656406)
-texture = ExtResource("1_8q1ex")
+texture = ExtResource("9_cukxa")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background7" unique_id=123953510]
 z_index = -10
 position = Vector2(-194.66656, -229.66672)
 scale = Vector2(1.3333333, 1.6938032)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background7" unique_id=202179709]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Background8" type="CanvasGroup" parent="Background group" unique_id=905592752]
 position = Vector2(5224, -176)
@@ -320,24 +291,24 @@ scale = Vector2(0.5999999, 0.5999999)
 z_index = -2
 position = Vector2(-2.543132e-05, -249.66675)
 scale = Vector2(0.99999994, 1.5939796)
-texture = ExtResource("5_0y0dc")
+texture = ExtResource("8_m6hpe")
 
 [node name="Ground" type="Sprite2D" parent="Background group/Background8" unique_id=1490446198]
 position = Vector2(-148.33339, 655.5834)
 scale = Vector2(2.140853, 0.7656406)
-texture = ExtResource("1_8q1ex")
+texture = ExtResource("9_cukxa")
 
 [node name="Sky" type="Sprite2D" parent="Background group/Background8" unique_id=42153481]
 z_index = -10
 position = Vector2(-194.66656, -229.66672)
 scale = Vector2(1.3333333, 1.6938032)
-texture = ExtResource("7_0y0dc")
+texture = ExtResource("10_wnkr1")
 
 [node name="Forest" type="Sprite2D" parent="Background group/Background8" unique_id=1839094509]
 z_index = -5
 position = Vector2(-191.33325, 228.66664)
 scale = Vector2(0.99999976, 0.99999976)
-texture = ExtResource("8_mt152")
+texture = ExtResource("11_ahhpx")
 
 [node name="Platforms" type="Node2D" parent="." unique_id=711359940]
 position = Vector2(62, -131.00002)
@@ -347,7 +318,7 @@ scale = Vector2(0.29999995, 0.29999995)
 z_index = -1
 position = Vector2(403.33337, 193.33342)
 scale = Vector2(1.3333335, 1.3333335)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform1" unique_id=1618679398]
 
@@ -357,11 +328,39 @@ scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")
 one_way_collision = true
 
+[node name="Platform11" type="Sprite2D" parent="Platforms" unique_id=1984583022]
+z_index = -1
+position = Vector2(1103.3335, 183.33342)
+scale = Vector2(1.3333335, 1.3333335)
+texture = ExtResource("12_fvhsf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform11" unique_id=1157915538]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform11/StaticBody2D" unique_id=1542591831]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform12" type="Sprite2D" parent="Platforms" unique_id=75615103]
+z_index = -1
+position = Vector2(613.3334, 23.333435)
+scale = Vector2(1.3333335, 1.3333335)
+texture = ExtResource("12_fvhsf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform12" unique_id=589544833]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform12/StaticBody2D" unique_id=188555563]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
 [node name="Platform2" type="Sprite2D" parent="Platforms" unique_id=838361379]
 z_index = -1
 position = Vector2(873.33344, 3.3334045)
 scale = Vector2(1.3333335, 1.3333335)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform2" unique_id=1101916316]
 
@@ -375,7 +374,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(1919.0001, 3.3334045)
 scale = Vector2(7.670214, 1.3333335)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform3" unique_id=1936408572]
 
@@ -389,7 +388,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(5456.668, 193.33342)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform4" unique_id=39554467]
 
@@ -403,7 +402,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(4950.001, 193.33342)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform6" unique_id=944353124]
 
@@ -417,7 +416,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(4473.3345, 193.33342)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform7" unique_id=767097334]
 
@@ -431,7 +430,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(4053.334, 193.33342)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform8" unique_id=564632336]
 
@@ -445,7 +444,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(6540.001, 193.33342)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform9" unique_id=1917405548]
 
@@ -459,7 +458,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(7033.335, 193.33342)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform10" unique_id=536712985]
 
@@ -473,7 +472,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(5976.6685, 60.00006)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform5" unique_id=976881963]
 
@@ -489,7 +488,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(8878.669, 227.3334)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Boss Platforms/BossPlatform1" unique_id=1906230219]
 
@@ -503,7 +502,7 @@ one_way_collision = true
 z_index = -1
 position = Vector2(9305.336, 227.3334)
 scale = Vector2(1.3333334, 1.3333334)
-texture = ExtResource("9_0y0dc")
+texture = ExtResource("12_fvhsf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Boss Platforms/BossPlatform2" unique_id=1052389144]
 
@@ -513,7 +512,7 @@ scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")
 one_way_collision = true
 
-[node name="CagneyBoss" parent="." unique_id=1926401219 instance=ExtResource("10_0y0dc")]
+[node name="CagneyBoss" parent="." unique_id=1926401219 instance=ExtResource("13_xowxq")]
 position = Vector2(3018, -98)
 
 [node name="BossTrigger" type="Area2D" parent="." unique_id=776067693]
@@ -535,20 +534,20 @@ offset_right = 9.0
 offset_bottom = 140.0
 color = Color(0.9597073, 0.9577878, 0.95425457, 0.38431373)
 
-[node name="DeathPit" parent="." unique_id=348701941 instance=ExtResource("12_2tgb3")]
+[node name="DeathPit" parent="." unique_id=348701941 instance=ExtResource("14_6o407")]
 position = Vector2(1490, 78)
 
-[node name="DeathPit2" parent="." unique_id=146398886 instance=ExtResource("12_2tgb3")]
+[node name="DeathPit2" parent="." unique_id=146398886 instance=ExtResource("14_6o407")]
 position = Vector2(2013, 78)
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=2061084831]
-stream = ExtResource("15_nh2yv")
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=1821066973]
+stream = ExtResource("15_jx38j")
 volume_db = -14.269
 autoplay = true
 parameters/looping = true
 
-[node name="BossMusic" type="AudioStreamPlayer2D" parent="." unique_id=576613348]
-stream = ExtResource("16_ya7kl")
+[node name="BossMusic" type="AudioStreamPlayer2D" parent="." unique_id=1472810369]
+stream = ExtResource("16_fy8fk")
 parameters/looping = true
 
 [connection signal="body_entered" from="BossTrigger" to="." method="_on_boss_trigger_body_entered"]

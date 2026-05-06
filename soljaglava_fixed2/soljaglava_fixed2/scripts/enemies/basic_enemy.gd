@@ -42,6 +42,7 @@ func take_damage():
 	flash()
 	play_sound(hit_sound,-12.0)
 	if hp <= 0:
+		GameManager.enemies_killed += 1
 		queue_free()
 		
 func flash():
