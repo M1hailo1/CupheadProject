@@ -541,13 +541,13 @@ position = Vector2(1490, 78)
 [node name="DeathPit2" parent="." unique_id=146398886 instance=ExtResource("12_2tgb3")]
 position = Vector2(2013, 78)
 
-[node name="LevelMusic" type="AudioStreamPlayer2D" parent="." unique_id=2061084831]
+[node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=1492385572]
 stream = ExtResource("15_nh2yv")
 volume_db = -14.269
 autoplay = true
 parameters/looping = true
 
-[node name="BossMusic" type="AudioStreamPlayer2D" parent="." unique_id=576613348]
+[node name="BossMusic" type="AudioStreamPlayer" parent="." unique_id=666505215]
 stream = ExtResource("16_ya7kl")
 parameters/looping = true
 

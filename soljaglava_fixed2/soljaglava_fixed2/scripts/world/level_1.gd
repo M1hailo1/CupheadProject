@@ -1,7 +1,10 @@
 extends Node2D
 
+var boss_triggered = false
+
 func _on_boss_trigger_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and not boss_triggered:
+		boss_triggered = true
 		$LevelMusic.stop()
 		$BossMusic.play()
 		var camera = body.get_node("Camera2D")

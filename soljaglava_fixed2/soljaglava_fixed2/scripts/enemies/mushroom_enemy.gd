@@ -5,6 +5,8 @@ var hp = 3
 var shoot_timer = 3.0
 const SHOOT_COOLDOWN = 3.0
 var player = null
+var dying = false
+var invincible = false
 
 var bullet_scene = preload("res://scenes/projectiles/enemy_bullet.tscn")
 var hit_sound = preload("res://assets/audio/universfield-falling-game-character-352287.mp3")
@@ -42,22 +44,38 @@ func attack():
 		$AnimatedSprite2D.play("idle")
 
 func take_damage():
+	if dying or invincible:
+		return
+	invincible = true
 	hp -= 1
-	play_sound(hit_sound,-12.0)
 	flash()
+	play_sound(hit_sound,-12.0)
 	if hp <= 0:
 		GameManager.enemies_killed += 1
-		queue_free()
+		dying = true
+		death_animation()
 		
 func flash():
 	$AnimatedSprite2D.modulate = Color(0.813, 0.408, 0.0, 1.0)
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
+	invincible = false
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.take_damage()
-		
+
+func death_animation():
+	$CollisionShape2D.disabled = true
+	$Hitbox/CollisionShape2D.disabled = true
+	
+	var tween = create_tween()
+	tween.tween_property(self, "position:y", position.y - 100, 0.3)
+	tween.tween_property(self, "position:y", position.y + 500, 0.5)
+	tween.tween_property(self, "modulate:a", 0.0, 0.2)
+	await tween.finished
+	queue_free()
+
 func play_sound(stream, volume_db = 0.0):
 	var player = AudioStreamPlayer.new()
 	get_tree().get_root().add_child(player)
