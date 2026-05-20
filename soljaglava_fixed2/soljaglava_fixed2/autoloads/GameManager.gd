@@ -6,6 +6,7 @@ var enemies_killed = 0
 var time_elapsed = 0.0
 var controls_shown = false
 var current_level = 1
+var boss_bonus = 0
 var levels = {
 	1: "res://scenes/world/level_1.tscn",
 	2: "res://scenes/world/level_2.tscn",
@@ -36,7 +37,7 @@ func next_level():
 func calculate_score():
 	var lives_lost = 3 - lives
 	var lives_penalty = lives_lost * 500
-	score = (enemies_killed * 100) - (int(time_elapsed) * 5) - lives_penalty
+	score = (enemies_killed * 150) - (int(time_elapsed) * 2) - lives_penalty + boss_bonus
 	if score < 0:
 		score = 0
 

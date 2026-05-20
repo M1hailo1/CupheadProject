@@ -543,12 +543,13 @@ position = Vector2(2013, 78)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=1492385572]
 stream = ExtResource("15_nh2yv")
-volume_db = -14.269
+volume_db = -25.523
 autoplay = true
 parameters/looping = true
 
 [node name="BossMusic" type="AudioStreamPlayer" parent="." unique_id=666505215]
 stream = ExtResource("16_ya7kl")
+volume_db = -14.282
 parameters/looping = true
 
 [connection signal="body_entered" from="BossTrigger" to="." method="_on_boss_trigger_body_entered"]

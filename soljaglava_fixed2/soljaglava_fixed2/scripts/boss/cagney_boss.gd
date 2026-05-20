@@ -94,10 +94,12 @@ func take_damage():
 		return
 	hp -= 1
 	print("Boss HP: ", hp)
-	play_sound(hit_sound,-12.0)
-	flash()
 	if hp <= 0:
+		state = State.DEATH
 		die()
+		return
+	play_sound(hit_sound, -12.0)
+	flash()
 
 func flash():
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)
@@ -106,6 +108,7 @@ func flash():
 
 func die():
 	state = State.DEATH
+	GameManager.boss_bonus += 1000
 	$AnimatedSprite2D.play("death")
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.stop()
