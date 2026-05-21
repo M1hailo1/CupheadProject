@@ -3,8 +3,8 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.die()
-	elif body.has_method("take_damage"):
-		body.queue_free()
+	elif body.has_method("death_animation"):
+		body.death_animation()
 
 func _ready():
 	$AnimatedSprite2D.play("spike")

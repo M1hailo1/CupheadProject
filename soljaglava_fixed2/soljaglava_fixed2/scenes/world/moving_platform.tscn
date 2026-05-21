@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dm37p7xgx8hae"]
+
+[ext_resource type="Script" uid="uid://bqih66qqxpl1x" path="res://scripts/world/moving_platform.gd" id="1_2p717"]
+[ext_resource type="Texture2D" uid="uid://dlkxti3a31gs1" path="res://assets/sprites/world/lv1-1_mg_floating-platform-single_0001.png" id="1_14efu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p717"]
+size = Vector2(293, 104)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=591858383]
+script = ExtResource("1_2p717")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1211434443]
+scale = Vector2(1.6117021, 1.2413793)
+texture = ExtResource("1_14efu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859786657]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_2p717")
+one_way_collision = true

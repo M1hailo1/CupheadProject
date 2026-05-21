@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 980.0
@@ -33,7 +34,10 @@ func _physics_process(delta: float) -> void:
 		play_sound(jump_sound,-5.0)
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
-	velocity.x = direction * SPEED
+	if is_on_floor():
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, direction * SPEED, SPEED * delta * 10)
 	
 	if direction > 0:
 		facing = 1
@@ -67,6 +71,7 @@ func _physics_process(delta: float) -> void:
 		shoot_timer = SHOOT_COOLDOWN
 	
 	move_and_slide()
+	velocity.y = clamp(velocity.y, -abs(JUMP_VELOCITY), abs(JUMP_VELOCITY) * 2)
 	update_animation()
 	update_hud()
 	

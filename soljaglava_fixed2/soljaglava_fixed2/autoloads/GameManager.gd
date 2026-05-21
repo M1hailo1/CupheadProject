@@ -36,7 +36,7 @@ func next_level():
 
 func calculate_score():
 	var lives_lost = 3 - lives
-	var lives_penalty = lives_lost * 500
+	var lives_penalty = lives_lost * 400
 	score = (enemies_killed * 150) - (int(time_elapsed) * 2) - lives_penalty + boss_bonus
 	if score < 0:
 		score = 0

@@ -45,8 +45,12 @@ func start_homing():
 	$AnimatedSprite2D.play("idle")
 	for i in range(3):
 		await get_tree().create_timer(0.5).timeout
+		if state == State.DEATH:
+			return
 		spawn_homing_bullet()
 	await get_tree().create_timer(1.0).timeout
+	if state == State.DEATH:
+		return
 	state = State.IDLE
 	$AnimatedSprite2D.play("idle")
 	attack_timer = 2.0
