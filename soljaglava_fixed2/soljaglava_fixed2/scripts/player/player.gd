@@ -82,8 +82,18 @@ func update_hud():
 	var timer_label = get_tree().get_root().find_child("TimerLabel", true, false)
 	var score_label = get_tree().get_root().find_child("ScoreLabel", true, false)
 	
-	if hp_label: hp_label.text = "HP: " + str(hp)
-	if lives_label: lives_label.text = "Lives: " + str(GameManager.lives)
+	if hp_label:
+		var hearts = ""
+		for i in MAX_HP:
+			hearts += "❤" if i < hp else "♡"
+		hp_label.text = hearts
+		
+	if lives_label:
+		var stars = ""
+		for i in 3:
+			stars += "💛" if i < GameManager.lives else "🖤"
+		lives_label.text = stars
+	
 	if level_label: level_label.text = "Level: " + str(GameManager.current_level)
 	if timer_label:
 		var minutes = int(GameManager.time_elapsed) / 60

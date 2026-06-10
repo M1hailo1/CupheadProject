@@ -101,9 +101,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_mtcnk")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -123,7 +123,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -150,9 +150,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("29_wnhgn")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -212,34 +212,35 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("48_x3oo4")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rp8ao"]
-radius = 52.0
-height = 122.0
+radius = 28.0
+height = 56.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_psptk"]
-size = Vector2(104.5, 113)
+size = Vector2(68, 52)
 
 [node name="GoopyBoss" type="CharacterBody2D" unique_id=1209901661]
 script = ExtResource("1_swks6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1266148051]
-position = Vector2(-41, -5)
-scale = Vector2(0.29217395, 0.29217395)
+position = Vector2(-17, -6)
+scale = Vector2(0.16056085, 0.15391305)
 sprite_frames = SubResource("SpriteFrames_4s2to")
-animation = &"idle"
+animation = &"punch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1181186755]
+position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_rp8ao")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=193986797]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1589523869]
-position = Vector2(1, 2)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_psptk")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
