@@ -167,3 +167,11 @@ func play_sound(stream, volume_db = 0.0):
 	player.play()
 	await player.finished
 	player.queue_free()
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE:
+			if get_tree().paused:
+				return
+			var pause = preload("res://scenes/ui/pause_menu.tscn").instantiate()
+			get_tree().current_scene.add_child(pause)

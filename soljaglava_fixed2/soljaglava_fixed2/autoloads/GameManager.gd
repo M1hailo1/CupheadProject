@@ -45,3 +45,11 @@ func you_win():
 	calculate_score()
 	var screen = preload("res://scenes/ui/win_screen.tscn").instantiate()
 	get_tree().get_root().add_child(screen)
+	
+func reset_game():
+	lives = 3
+	score = 0
+	enemies_killed = 0
+	time_elapsed = 0.0
+	current_level = 1
+	boss_bonus = 0

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://2jibpsxuagag"]
+
+[ext_resource type="Script" uid="uid://m6rm4nglieh" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
+
+[node name="MainMenu" type="Control" unique_id=2103889410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl1te")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2061792005]
+layout_mode = 0
+offset_right = 1938.0
+offset_bottom = 1076.0
+color = Color(0.050980393, 0.050980393, 0.101960786, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1932363105]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 191.0
+offset_right = 1108.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(1, 0.8745098, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "SOLJOGLAVI"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Title" unique_id=1477887837]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 119.0
+offset_right = 274.0
+offset_bottom = 259.0
+
+[node name="PlayButton" type="Button" parent="Title/VBoxContainer" unique_id=687293694]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "IGRAJ"
+
+[node name="LeaderboardButton" type="Button" parent="Title/VBoxContainer" unique_id=1490831505]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "REZULTATI"
+
+[node name="QuitButton" type="Button" parent="Title/VBoxContainer" unique_id=559251501]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "IZLAZ"
+
+[connection signal="pressed" from="Title/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="Title/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

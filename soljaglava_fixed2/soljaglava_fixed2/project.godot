@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="soljaglava"
-run/main_scene="uid://dngtjh1mii0f3"
+run/main_scene="uid://2jibpsxuagag"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://pt6dwx85fmat"
 run/icon="res://icon.svg"
