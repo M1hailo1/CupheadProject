@@ -49,6 +49,31 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "IZLAZ"
 
+[node name="LeaderboardPanel" type="Panel" parent="." unique_id=2024618934]
+visible = false
+layout_mode = 0
+offset_left = 912.0
+offset_top = 454.0
+offset_right = 1054.0
+offset_bottom = 454.0
+
+[node name="LeaderboardLabel" type="Label" parent="LeaderboardPanel" unique_id=1282204887]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="LeaderboardPanel/LeaderboardLabel" unique_id=1728611418]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 32.0
+offset_right = 102.0
+offset_bottom = 63.0
+text = "Zatvori"
+
 [connection signal="pressed" from="Title/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="Title/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="LeaderboardPanel/LeaderboardLabel/CloseButton" to="." method="_on_close_button_pressed"]

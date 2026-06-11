@@ -10,6 +10,15 @@ func _ready():
 	$TimeLabel.text = "Time: %d:%02d" % [minutes, seconds]
 	$KillsLabel.text = "Enemies Killed: " + str(GameManager.enemies_killed)
 	$ScoreLabel.text = "Score: " + str(GameManager.score)
+	
+	var scores = GameManager.highscores
+	if scores.is_empty():
+		$LeaderboardLabel.text = "Nema još rezultata"
+	else:
+		var text = "TOP 10\n──────────\n"
+		for i in scores.size():
+			text += "%d.  %d\n" % [i + 1, scores[i]]
+		$LeaderboardLabel.text = text
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:

@@ -19,6 +19,7 @@ run/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://c6ejn5tnmfssu"
+SceneTransition="*uid://c2f1kl1xrwmu6"
 
 [display]
 

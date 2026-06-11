@@ -4,8 +4,7 @@ const GRAVITY = 980.0
 const JUMP_FORCE = -600.0
 const PUNCH_SPEED = 300.0
 
-var hp = 60
-var max_hp = 60
+var hp = 80
 var player = null
 var state = "idle"
 var attack_timer = 3.0
@@ -74,6 +73,7 @@ func landed():
 		velocity.x = 0
 		$AnimatedSprite2D.play("idle")
 		attack_timer = 2.0
+		screen_shake()
 
 func take_damage(amount = 1):
 	if not boss_fight_started:
@@ -111,3 +111,13 @@ func play_sound(stream, volume_db = 0.0):
 	player.play()
 	await player.finished
 	player.queue_free()
+	
+func screen_shake():
+	var camera = get_tree().get_root().find_child("Camera2D", true, false)
+	if camera == null:
+		return
+	var original = camera.offset
+	var tween = create_tween()
+	for i in 8:
+		tween.tween_property(camera, "offset", original + Vector2(randf_range(-12, 12), randf_range(-12, 12)), 0.05)
+	tween.tween_property(camera, "offset", original, 0.05)

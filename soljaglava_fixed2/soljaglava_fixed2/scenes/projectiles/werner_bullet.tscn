@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dix0iy0t0jus6"]
+
+[ext_resource type="Script" uid="uid://c7xirhjfvn1yo" path="res://scripts/projectiles/werner_bullet.gd" id="1_4mhrq"]
+[ext_resource type="Texture2D" uid="uid://g8vvbatb6yp5" path="res://assets/sprites/boss/werner/Bolt/mouse_catapult_bolt_0001.png" id="1_jgcmw"]
+[ext_resource type="Texture2D" uid="uid://di3rv00gc3puq" path="res://assets/sprites/boss/werner/Bolt/mouse_catapult_bolt_0002.png" id="2_4mhrq"]
+[ext_resource type="Texture2D" uid="uid://do7ys0sluh88b" path="res://assets/sprites/boss/werner/Bolt/mouse_catapult_bolt_0003.png" id="3_d5nd7"]
+[ext_resource type="Texture2D" uid="uid://b8gglcf6rwqlq" path="res://assets/sprites/boss/werner/Bolt/mouse_catapult_bolt_0004.png" id="4_fdsoi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_josot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jgcmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4mhrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d5nd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fdsoi")
+}],
+"loop": true,
+"name": &"main",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhx40"]
+
+[node name="WernerBullet" type="Area2D" unique_id=1477469574]
+script = ExtResource("1_4mhrq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156577119]
+position = Vector2(-1.0000002, -1.9999998)
+scale = Vector2(0.52835053, 0.49742267)
+sprite_frames = SubResource("SpriteFrames_josot")
+animation = &"main"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=998713957]
+shape = SubResource("CircleShape2D_qhx40")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=819846212]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
