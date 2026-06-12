@@ -96,12 +96,24 @@ scale = Vector2(1, 1)
 position = Vector2(940.00006, -10.769234)
 scale = Vector2(0.76923084, 0.76923084)
 
-[node name="MushroomEnemy2" parent="Enemies" unique_id=1624352712 instance=ExtResource("6_woq5c")]
-position = Vector2(672.30774, -230.76926)
-scale = Vector2(0.76923084, 0.76923084)
-
 [node name="MushroomEnemy3" parent="Enemies" unique_id=131198919 instance=ExtResource("6_woq5c")]
 position = Vector2(1338.4615, -10.769228)
+scale = Vector2(0.76923084, 0.76923084)
+
+[node name="MushroomEnemy4" parent="Enemies" unique_id=1830512679 instance=ExtResource("6_woq5c")]
+position = Vector2(3513.8464, -135.38461)
+scale = Vector2(0.76923084, 0.76923084)
+
+[node name="MushroomEnemy5" parent="Enemies" unique_id=1227265459 instance=ExtResource("6_woq5c")]
+position = Vector2(3513.8464, -238.46155)
+scale = Vector2(0.76923084, 0.76923084)
+
+[node name="MushroomEnemy6" parent="Enemies" unique_id=594832186 instance=ExtResource("6_woq5c")]
+position = Vector2(3513.8464, -360.00003)
+scale = Vector2(0.76923084, 0.76923084)
+
+[node name="MushroomEnemy7" parent="Enemies" unique_id=475533980 instance=ExtResource("6_woq5c")]
+position = Vector2(3513.8464, -472.30774)
 scale = Vector2(0.76923084, 0.76923084)
 
 [node name="Background group" type="Node2D" parent="." unique_id=365737182]
@@ -384,9 +396,37 @@ scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")
 one_way_collision = true
 
+[node name="Platform14" type="Sprite2D" parent="Platforms" unique_id=589683149]
+z_index = -1
+position = Vector2(5470.0015, -166.66664)
+scale = Vector2(1.3333334, 1.3333334)
+texture = ExtResource("12_kcomi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform14" unique_id=770026372]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform14/StaticBody2D" unique_id=1557823956]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform15" type="Sprite2D" parent="Platforms" unique_id=1097232264]
+z_index = -1
+position = Vector2(5946.668, -296.6667)
+scale = Vector2(1.3333334, 1.3333334)
+texture = ExtResource("12_kcomi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform15" unique_id=1449876559]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform15/StaticBody2D" unique_id=2125511148]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
 [node name="Platform6" type="Sprite2D" parent="Platforms" unique_id=380187179]
 z_index = -1
-position = Vector2(4950.001, 193.33342)
+position = Vector2(4950.001, -9.999954)
 scale = Vector2(1.3333334, 1.3333334)
 texture = ExtResource("12_kcomi")
 
@@ -400,13 +440,27 @@ one_way_collision = true
 
 [node name="Platform7" type="Sprite2D" parent="Platforms" unique_id=1251648797]
 z_index = -1
-position = Vector2(4473.3345, 193.33342)
+position = Vector2(4473.3345, 73.3334)
 scale = Vector2(1.3333334, 1.3333334)
 texture = ExtResource("12_kcomi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform7" unique_id=767097334]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform7/StaticBody2D" unique_id=47534276]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform16" type="Sprite2D" parent="Platforms" unique_id=1321886265]
+z_index = -1
+position = Vector2(4473.3345, -256.66666)
+scale = Vector2(1.3333334, 1.3333334)
+texture = ExtResource("12_kcomi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform16" unique_id=1360110361]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform16/StaticBody2D" unique_id=1771015217]
 position = Vector2(0, -17.5)
 scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")
@@ -454,6 +508,48 @@ scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")
 one_way_collision = true
 
+[node name="Platform12" type="Sprite2D" parent="Platforms" unique_id=843961353]
+z_index = -1
+position = Vector2(7033.335, -36.666626)
+scale = Vector2(1.3333334, 1.3333334)
+texture = ExtResource("12_kcomi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform12" unique_id=946696736]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform12/StaticBody2D" unique_id=819265114]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform13" type="Sprite2D" parent="Platforms" unique_id=1704511480]
+z_index = -1
+position = Vector2(7033.335, -293.33334)
+scale = Vector2(1.3333334, 1.3333334)
+texture = ExtResource("12_kcomi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform13" unique_id=1576122605]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform13/StaticBody2D" unique_id=1778748937]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
+[node name="Platform17" type="Sprite2D" parent="Platforms" unique_id=353383471]
+z_index = -1
+position = Vector2(7033.334, -540.00006)
+scale = Vector2(1.3333334, 1.3333334)
+texture = ExtResource("12_kcomi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Platform17" unique_id=1783965998]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform17/StaticBody2D" unique_id=21577656]
+position = Vector2(0, -17.5)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_b0ve4")
+one_way_collision = true
+
 [node name="Platform5" type="Sprite2D" parent="Platforms" unique_id=470272302]
 z_index = -1
 position = Vector2(5976.6685, 60.00006)
@@ -487,12 +583,11 @@ offset_right = 9.0
 offset_bottom = 140.0
 color = Color(0.9597073, 0.9577878, 0.95425457, 0.38431373)
 
-[node name="DeathPit" parent="." unique_id=348701941 instance=ExtResource("14_liy5a")]
-position = Vector2(1490, 78)
-script = ExtResource("14_s4qew")
-
 [node name="DeathPit2" parent="." unique_id=146398886 instance=ExtResource("14_liy5a")]
 position = Vector2(2013, 78)
+
+[node name="DeathPit3" parent="." unique_id=348701941 instance=ExtResource("14_liy5a")]
+position = Vector2(1493, 78)
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=1747096860]
 stream = ExtResource("15_u43rp")

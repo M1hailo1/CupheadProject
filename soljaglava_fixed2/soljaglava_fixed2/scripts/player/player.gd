@@ -9,7 +9,7 @@ var shoot_timer = 0.0
 const SHOOT_COOLDOWN = 0.25
 
 const MAX_HP = 3
-var hp = 3
+var hp = 50
 var invincible = false
 var invincible_timer = 0.0
 const INVINCIBLE_TIME = 1.5

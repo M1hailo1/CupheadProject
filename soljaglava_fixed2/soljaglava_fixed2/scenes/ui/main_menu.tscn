@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2jibpsxuagag"]
 
 [ext_resource type="Script" uid="uid://m6rm4nglieh" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Texture2D" uid="uid://ij7g54g03lub" path="res://assets/mainmenubackground.png" id="2_fe2o3"]
 
 [node name="MainMenu" type="Control" unique_id=2103889410]
 layout_mode = 3
@@ -11,11 +12,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl1te")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2061792005]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2107301894]
 layout_mode = 0
 offset_right = 1938.0
 offset_bottom = 1076.0
-color = Color(0.050980393, 0.050980393, 0.101960786, 1)
+texture = ExtResource("2_fe2o3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2014484862]
+layout_mode = 0
+offset_right = 1938.0
+offset_bottom = 1076.0
+color = Color(0, 0, 0, 0.6862745)
 
 [node name="Title" type="Label" parent="." unique_id=1932363105]
 layout_mode = 0
@@ -24,6 +31,8 @@ offset_top = 191.0
 offset_right = 1108.0
 offset_bottom = 290.0
 theme_override_colors/font_color = Color(1, 0.8745098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 72
 text = "SOLJOGLAVI"
 
