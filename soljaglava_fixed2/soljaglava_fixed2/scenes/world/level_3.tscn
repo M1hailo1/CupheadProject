@@ -13,9 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://ch7aw5krbvi7e" path="res://assets/sprites/world/lv1-1_bgfar_far-forest-start.png" id="11_ahhpx"]
 [ext_resource type="Texture2D" uid="uid://dlkxti3a31gs1" path="res://assets/sprites/world/lv1-1_mg_floating-platform-single_0001.png" id="12_fvhsf"]
 [ext_resource type="PackedScene" uid="uid://dvrrkqovsjdtd" path="res://scenes/world/death_pit.tscn" id="14_6o407"]
-[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/Audio/atlasaudio-jazz-490623.mp3" id="15_jx38j"]
+[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/audio/atlasaudio-jazz-490623.mp3" id="15_jx38j"]
 [ext_resource type="PackedScene" uid="uid://dx5w70ur5e01c" path="res://scenes/boss/werner_boss.tscn" id="16_cej2o"]
-[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/Audio/aktasok-jazz-drum-jam-154270.mp3" id="16_fy8fk"]
+[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/audio/aktasok-jazz-drum-jam-154270.mp3" id="16_fy8fk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq706"]
 size = Vector2(7000, 20)

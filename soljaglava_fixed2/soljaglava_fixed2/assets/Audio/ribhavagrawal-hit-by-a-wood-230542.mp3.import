@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://kadtkkc3gl4u"
-path="res://.godot/imported/ribhavagrawal-hit-by-a-wood-230542.mp3-dac24c217c480ce132ea4eae231b1ef7.mp3str"
+path="res://.godot/imported/ribhavagrawal-hit-by-a-wood-230542.mp3-ccbbab3cdf59b89efdbfcb9f53306027.mp3str"
 
 [deps]
 
-source_file="res://assets/Audio/ribhavagrawal-hit-by-a-wood-230542.mp3"
-dest_files=["res://.godot/imported/ribhavagrawal-hit-by-a-wood-230542.mp3-dac24c217c480ce132ea4eae231b1ef7.mp3str"]
+source_file="res://assets/audio/ribhavagrawal-hit-by-a-wood-230542.mp3"
+dest_files=["res://.godot/imported/ribhavagrawal-hit-by-a-wood-230542.mp3-ccbbab3cdf59b89efdbfcb9f53306027.mp3str"]
 
 [params]
 

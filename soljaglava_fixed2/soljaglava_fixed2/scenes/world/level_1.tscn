@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ckidmgjrdt7kb" path="res://scenes/boss/cagney_boss.tscn" id="10_0y0dc"]
 [ext_resource type="PackedScene" uid="uid://dvrrkqovsjdtd" path="res://scenes/world/death_pit.tscn" id="12_2tgb3"]
 [ext_resource type="PackedScene" uid="uid://dm37p7xgx8hae" path="res://scenes/world/moving_platform.tscn" id="14_y7hyg"]
-[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/Audio/atlasaudio-jazz-490623.mp3" id="15_nh2yv"]
-[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/Audio/aktasok-jazz-drum-jam-154270.mp3" id="16_ya7kl"]
+[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/audio/atlasaudio-jazz-490623.mp3" id="15_nh2yv"]
+[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/audio/aktasok-jazz-drum-jam-154270.mp3" id="16_ya7kl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq706"]
 size = Vector2(7000, 20)

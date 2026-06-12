@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://02a67r47g3yb"
-path="res://.godot/imported/universfield-gunshot-352466.mp3-5a6cbd4f55602af08e0900423f478cf8.mp3str"
+path="res://.godot/imported/universfield-gunshot-352466.mp3-9f7c527126d900a1c1a60e08ca3e2e02.mp3str"
 
 [deps]
 
-source_file="res://assets/Audio/universfield-gunshot-352466.mp3"
-dest_files=["res://.godot/imported/universfield-gunshot-352466.mp3-5a6cbd4f55602af08e0900423f478cf8.mp3str"]
+source_file="res://assets/audio/universfield-gunshot-352466.mp3"
+dest_files=["res://.godot/imported/universfield-gunshot-352466.mp3-9f7c527126d900a1c1a60e08ca3e2e02.mp3str"]
 
 [params]
 

@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dlkxti3a31gs1" path="res://assets/sprites/world/lv1-1_mg_floating-platform-single_0001.png" id="12_kcomi"]
 [ext_resource type="PackedScene" uid="uid://dvrrkqovsjdtd" path="res://scenes/world/death_pit.tscn" id="14_liy5a"]
 [ext_resource type="Script" uid="uid://2nx6pp0bowi4" path="res://scripts/world/level_2.gd" id="14_s4qew"]
-[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/Audio/atlasaudio-jazz-490623.mp3" id="15_u43rp"]
-[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/Audio/aktasok-jazz-drum-jam-154270.mp3" id="16_s4qew"]
+[ext_resource type="AudioStream" uid="uid://br73nfobxcu6y" path="res://assets/audio/atlasaudio-jazz-490623.mp3" id="15_u43rp"]
+[ext_resource type="AudioStream" uid="uid://dgv2v3tcyc3gu" path="res://assets/audio/aktasok-jazz-drum-jam-154270.mp3" id="16_s4qew"]
 [ext_resource type="PackedScene" uid="uid://3l56spu403ck" path="res://scenes/boss/goopy_boss.tscn" id="16_u43rp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq706"]

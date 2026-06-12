@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://br73nfobxcu6y"
-path="res://.godot/imported/atlasaudio-jazz-490623.mp3-2207e969615a34376cd085470d60132e.mp3str"
+path="res://.godot/imported/atlasaudio-jazz-490623.mp3-47c47503811394ddaf1734eac974c74e.mp3str"
 
 [deps]
 
-source_file="res://assets/Audio/atlasaudio-jazz-490623.mp3"
-dest_files=["res://.godot/imported/atlasaudio-jazz-490623.mp3-2207e969615a34376cd085470d60132e.mp3str"]
+source_file="res://assets/audio/atlasaudio-jazz-490623.mp3"
+dest_files=["res://.godot/imported/atlasaudio-jazz-490623.mp3-47c47503811394ddaf1734eac974c74e.mp3str"]
 
 [params]
 

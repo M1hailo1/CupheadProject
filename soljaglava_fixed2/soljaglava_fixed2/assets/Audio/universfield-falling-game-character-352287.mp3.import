@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://f58e84l6ydw8"
-path="res://.godot/imported/universfield-falling-game-character-352287.mp3-adbc67efd6740224d5ba22fcc6e58746.mp3str"
+path="res://.godot/imported/universfield-falling-game-character-352287.mp3-fa6af6c61b65d44f64a3431c643bf297.mp3str"
 
 [deps]
 
-source_file="res://assets/Audio/universfield-falling-game-character-352287.mp3"
-dest_files=["res://.godot/imported/universfield-falling-game-character-352287.mp3-adbc67efd6740224d5ba22fcc6e58746.mp3str"]
+source_file="res://assets/audio/universfield-falling-game-character-352287.mp3"
+dest_files=["res://.godot/imported/universfield-falling-game-character-352287.mp3-fa6af6c61b65d44f64a3431c643bf297.mp3str"]
 
 [params]
 
