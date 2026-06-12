@@ -91,9 +91,6 @@
 [ext_resource type="Texture2D" uid="uid://df2jwq08vmdef" path="res://assets/sprites/boss/werner/Death/mouse_spring_death_0013.png" id="88_7420p"]
 [ext_resource type="Texture2D" uid="uid://brt8i7gp4qvxb" path="res://assets/sprites/boss/werner/Death/mouse_spring_death_0014.png" id="89_6dg64"]
 [ext_resource type="Texture2D" uid="uid://dkl3m8c565utv" path="res://assets/sprites/boss/werner/Death/mouse_spring_death_0015.png" id="90_dejur"]
-[ext_resource type="Texture2D" uid="uid://cx25nc5uaahxl" path="res://assets/sprites/boss/werner/Down/can_idle_down_0001.png" id="91_clvw3"]
-[ext_resource type="Texture2D" uid="uid://boogetj0gq72s" path="res://assets/sprites/boss/werner/Down/can_idle_down_0002.png" id="92_5x2xn"]
-[ext_resource type="Texture2D" uid="uid://bvd8hptsy8wfc" path="res://assets/sprites/boss/werner/Down/can_idle_down_0003.png" id="93_en1b5"]
 [ext_resource type="Texture2D" uid="uid://dukne80i30tld" path="res://assets/sprites/boss/werner/Move/can_move_0001.png" id="94_1csag"]
 [ext_resource type="Texture2D" uid="uid://c5p50kbrotyuk" path="res://assets/sprites/boss/werner/Move/can_move_0002.png" id="95_x4s8s"]
 [ext_resource type="Texture2D" uid="uid://da34vfnp38aqe" path="res://assets/sprites/boss/werner/Move/can_move_0003.png" id="96_m4joh"]
@@ -426,13 +423,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("91_clvw3")
+"texture": ExtResource("1_34ogb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("92_5x2xn")
+"texture": ExtResource("2_yosou")
 }, {
 "duration": 1.0,
-"texture": ExtResource("93_en1b5")
+"texture": ExtResource("3_s4ujk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lkbfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4cg8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ybbbk")
 }],
 "loop": true,
 "name": &"idle",
@@ -592,10 +598,10 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34ogb"]
 radius = 24.0
-height = 104.0
+height = 90.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4ujk"]
-size = Vector2(38, 89)
+size = Vector2(43, 84.5)
 
 [node name="WernerBoss" type="CharacterBody2D" unique_id=1233050754]
 script = ExtResource("1_yosou")
@@ -604,15 +610,18 @@ script = ExtResource("1_yosou")
 position = Vector2(-1.5258789e-05, -0.9999771)
 scale = Vector2(0.21854253, 0.23529415)
 sprite_frames = SubResource("SpriteFrames_gw5re")
-animation = &"dash"
+animation = &"idle"
+frame = 1
+frame_progress = 0.87889475
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956845576]
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_34ogb")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=439760565]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1758507120]
-position = Vector2(-1, 0)
+position = Vector2(-0.5, 0.25)
 shape = SubResource("RectangleShape2D_s4ujk")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

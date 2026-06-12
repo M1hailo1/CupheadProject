@@ -27,13 +27,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhx40"]
+radius = 12.0415945
 
 [node name="WernerBullet" type="Area2D" unique_id=1477469574]
 script = ExtResource("1_4mhrq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=156577119]
-position = Vector2(-1.0000002, -1.9999998)
-scale = Vector2(0.52835053, 0.49742267)
+position = Vector2(4.7683716e-07, -4)
+scale = Vector2(0.69716495, 0.65635526)
 sprite_frames = SubResource("SpriteFrames_josot")
 animation = &"main"
 
@@ -41,6 +42,8 @@ animation = &"main"
 shape = SubResource("CircleShape2D_qhx40")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=819846212]
+position = Vector2(-2, 1)
+rect = Rect2(-10, -12, 22, 22)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

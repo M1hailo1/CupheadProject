@@ -486,7 +486,7 @@ one_way_collision = true
 
 [node name="BossPlatform1" type="Sprite2D" parent="Platforms/Boss Platforms" unique_id=1545699865]
 z_index = -1
-position = Vector2(8878.669, 227.3334)
+position = Vector2(9126.668, 226.66678)
 scale = Vector2(1.3333334, 1.3333334)
 texture = ExtResource("12_fvhsf")
 
@@ -498,15 +498,15 @@ scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")
 one_way_collision = true
 
-[node name="BossPlatform2" type="Sprite2D" parent="Platforms/Boss Platforms" unique_id=240306708]
+[node name="BossPlatform2" type="Sprite2D" parent="Platforms/Boss Platforms" unique_id=2050987017]
 z_index = -1
-position = Vector2(9305.336, 227.3334)
+position = Vector2(9810.002, 226.66678)
 scale = Vector2(1.3333334, 1.3333334)
 texture = ExtResource("12_fvhsf")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Boss Platforms/BossPlatform2" unique_id=1052389144]
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/Boss Platforms/BossPlatform2" unique_id=1397574136]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Boss Platforms/BossPlatform2/StaticBody2D" unique_id=963691492]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Boss Platforms/BossPlatform2/StaticBody2D" unique_id=455474973]
 position = Vector2(0, -17.5)
 scale = Vector2(0.9999994, 0.9999994)
 shape = SubResource("RectangleShape2D_b0ve4")

@@ -12,9 +12,11 @@ var boss_fight_started = false
 var facing = -1
 var hit_sound = preload("res://assets/audio/ribhavagrawal-hit-by-a-wood-230542.mp3")
 var bullet_scene = preload("res://scenes/projectiles/werner_bullet.tscn")
+var attack_count = 0
 
 func _ready():
 	player = get_tree().get_root().find_child("Player", true, false)
+	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta):
 	if not boss_fight_started:
@@ -28,8 +30,6 @@ func _physics_process(delta):
 			attack_timer -= delta
 			if attack_timer <= 0:
 				choose_attack()
-		"move":
-			velocity.x = MOVE_SPEED * facing
 		"dash":
 			velocity.x = DASH_SPEED * facing
 	
@@ -41,7 +41,8 @@ func choose_attack():
 	facing = -1 if player.global_position.x < global_position.x else 1
 	$AnimatedSprite2D.flip_h = facing == 1
 	
-	if randi() % 2 == 0:
+	attack_count += 1
+	if attack_count % 2 == 0:
 		start_dash()
 	else:
 		start_throw()
@@ -51,16 +52,25 @@ func start_dash():
 	$AnimatedSprite2D.play("dash")
 
 func start_throw():
-	state = "idle"
-	$AnimatedSprite2D.play("throw")
+	state = "throw"
+	await get_tree().create_timer(1.0).timeout
+	if state == "throw":
+		spawn_bullet()
+		state = "idle"
+		$AnimatedSprite2D.play("idle")
+		attack_timer = 3.0
 
 func spawn_bullet():
 	if bullet_scene == null:
 		return
-	var bullet = bullet_scene.instantiate()
-	bullet.direction = facing
-	bullet.global_position = global_position + Vector2(facing * 40, -20)
-	get_parent().add_child(bullet)
+	for i in 6:
+		var target = player.global_position if player else global_position + Vector2(facing * 300, 0)
+		var bullet = bullet_scene.instantiate()
+		bullet.direction = facing
+		bullet.target_x = target.x + randf_range(-100, 100)
+		bullet.global_position = global_position + Vector2(facing * 40, -20)
+		get_parent().add_child(bullet)
+		await get_tree().create_timer(0.4).timeout
 
 func _on_animated_sprite_2d_animation_finished():
 	match state:
@@ -69,11 +79,6 @@ func _on_animated_sprite_2d_animation_finished():
 			velocity.x = 0
 			$AnimatedSprite2D.play("idle")
 			attack_timer = 2.0
-		"throw":
-			spawn_bullet()
-			state = "idle"
-			$AnimatedSprite2D.play("idle")
-			attack_timer = 2.5
 		"death":
 			GameManager.next_level()
 

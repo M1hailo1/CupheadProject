@@ -15,6 +15,7 @@ var hit_sound = preload("res://assets/audio/universfield-falling-game-character-
 
 func _ready():
 	player = get_tree().get_root().find_child("Player", true, false)
+	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta):
 	if not boss_fight_started:
